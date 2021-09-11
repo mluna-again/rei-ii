@@ -1,7 +1,10 @@
 # Rei-II rice (completely unrelated name, i know, but the original repo was named rei so whatever)
 
 ## Previews
-[xmonad](previes/home.png)
+![xmonad](previews/home.png)
+![eww](previews/eww.png)
+![rofi](previews/rofi.png)
+![lockscreen](previews/lockscreen.png)
 
 ## Programs
 * rofi
