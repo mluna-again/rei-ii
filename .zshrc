@@ -15,14 +15,8 @@ alias dotsR="dots reset --hard"
 alias dotsp="dots push"
 alias dotsb="dots branch"
 alias dotsd="dots diff"
-# [ -d $HOME/.dots ] && dots config --local status.showUntrackedFiles no
 
-export PATH="$PATH:$HOME/rei/cool-shit/"
-# [[ -d ~/.local/scripts ]] && source ~/.local/scripts/*.sh
-# Source my functions
-# Custom commands
 alias ls="ls --color"
-alias neofetch="neofetch --ascii ~/.config/neofetch/mona-china"
 alias ports="sudo lsof -i -P -n | grep -i listen"
 alias gd="git diff"
 alias gl="git log"
@@ -33,8 +27,6 @@ alias gs="git status"
 alias ga="git add ."
 alias gA="git add "
 alias gc="git commit -m"
-alias wifi="~/.scripts/wifi.sh"
-alias s="./sync.sh"
 alias t="tmux"
 alias n="nordvpn"
 alias ns="nordvpn status"
@@ -52,52 +44,23 @@ alias k="kubectl"
 alias drun="deno run --unstable --watch"
 alias python="python3"
 alias kill_kitties="~/.local/scripts/kill_kitties $PPID"
-alias rp="~/.local/start_scripts/picom_autostart.sh"
-alias vsync="rm ~/.vimrc && cp .vimrc ~"
 alias cd-="cd -"
 alias artisan="php artisan"
-alias mysql="mysql -u root -p"
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
-alias rain="rain.sh"
 alias icat="kitty +kitten icat"
 alias explorer="xdg-open ."
 alias please="sudo"
 alias die="exit"
 alias cd..="cd .."
-alias howisthemoon="curl 'wttr.in/Moon'"
-alias weather="curl 'wttr.in/Guadalajara, Mexico'"
-alias pwsh="pwsh -NoLogo"
-alias scan="sudo nmap -sn 192.168.0.5/24"
 alias v="nvim"
+
 # Python activate virtual env shortcut
 #alias activate="source bin/activate"
 
 search-js() {
   grep -in $2 $(find $1 -type f -name "*.js")
 }
-
-ok_computer() {
-  echo "$fg[magenta]>$reset_color Happier";
-  echo "$fg[magenta]>$reset_color More productive";
-}
-alias fitter="ok_computer"
-get_moon() {
-  EMOJI="$(curl -s --write-out "%{http_code}" 'wttr.in/Guadalajara, Mexico?format=%m' | cut -c1-7)"
-  if [[ $EMOJI != *"200"* ]]
-  then
-    echo '👽'
-  else 
-    echo "$(echo $EMOJI | cut -c1-4)"
-  fi
-}
-get_weather() {
-    echo "$(curl -s 'wttr.in/Guadalajara, Mexico?format=%c%t')" | cut -c1-11
-}
-# W_RES=$(get_weather)
-# export WEATHER=$(echo $W_RES | cut -c1-4)
-# export TEMP=$(echo $W_RES | cut -c7-10)
-# export MOONPHASE=$(get_moon)
 
 # unalias run-help
 autoload run-help
@@ -205,17 +168,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
 
-# jeje
-PS2='... '
-export prompt_icon="%{$fg[magenta]%}λ%f"
-# export prompt_icon="%{$fg[magenta]%}>%f"
-dollar() {
-    prompt_icon="%{$fg[green]%}$%f"
-}
-lambda() {
-    prompt_icon="%{$fg[magenta]%}λ%f"
-}
-
 # help :(
 
 export VISUAL=nvim
@@ -238,11 +190,7 @@ export JAVA_HOME=/usr/lib/jvm/bellsoft-java8-amd64
 
 export PATH=$PATH:$HOME/.yarn/bin
 
-alias emu="emulator @Pixel"
-export DENO_INSTALL="/home/mluna/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-export SPICETIFY_INSTALL="/home/mluna/spicetify-cli"
+export SPICETIFY_INSTALL="$HOME/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 
 # npm global
