@@ -1,4 +1,7 @@
-alias pam="sudo pacman"
+# alias pam="sudo pacman"
+pam() {
+  sudo pacman "$@" || echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck."
+}
 alias vv="v ~/.vimrc"
 alias vz="v ~/.zshrc"
 alias vm="v ~/.xmonad/xmonad.hs"
