@@ -7,6 +7,8 @@ TEXT='#ebdbb2'
 WRONG='#cc241d'
 VERIFYING='#00000000'
 
+[ ! -f $HOME/.cache/lockscreen.png ] && convert -resize $($HOME/.local/scripts/get_res.sh) $HOME/Pictures/wallpapers/gods_die_too.png $HOME/.cache/lockscreen.png
+
 i3lock \
 -i $HOME/.cache/lockscreen.png \
 --insidever-color=$CLEAR     \
