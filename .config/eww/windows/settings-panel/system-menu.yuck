@@ -3,7 +3,7 @@
     :class "system-menu"
     (button :onclick "systemctl poweroff" :class "system-menu-icon" :cursor "pointer" "⏻︁")
     (button :onclick "systemctl reboot" :class "system-menu-icon" :cursor "pointer" "🗘︁")
-    (button :onclick "betterlockscreen -l" :class "system-menu-icon" :cursor "pointer"
+    (button :onclick "$HOME/.local/scripts/lockscreen.sh" :class "system-menu-icon" :cursor "pointer"
       (image :path "/usr/share/icons/NordArc-Icons/16x16/actions/lock.svg" :width 16 :height 16))
     (button :onclick "playerctl --player spotify pause; betterlockscreen -s" :class "system-menu-icon" :cursor "pointer" "⏾︁")
     (button :onclick "loginctl terminate-user $USER" :class "system-menu-icon" :cursor "pointer" (image :path "/usr/share/icons/NordArc-Icons/symbolic/actions/system-log-out-symbolic.svg" :width 16 :height 16))))

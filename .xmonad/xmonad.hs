@@ -163,8 +163,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. mod1Mask , xK_f ), spawn $ "firefox")
   , ((controlMask .|. mod1Mask , xK_g ), spawn $ "chromium -no-default-browser-check")
   , ((controlMask .|. mod1Mask , xK_i ), spawn $ "nitrogen")
-  , ((controlMask .|. mod1Mask , xK_k ), spawn $ "arcolinux-logout")
-  , ((controlMask .|. mod1Mask , xK_l ), spawn $ "arcolinux-logout")
+  -- , ((controlMask .|. mod1Mask , xK_k ), spawn $ "arcolinux-logout")
+  -- , ((controlMask .|. mod1Mask , xK_l ), spawn $ "arcolinux-logout")
   , ((controlMask .|. mod1Mask , xK_m ), spawn $ "xfce4-settings-manager")
   , ((controlMask .|. mod1Mask , xK_o ), spawn $ "$HOME/.xmonad/scripts/picom-toggle.sh")
   , ((controlMask .|. mod1Mask , xK_p ), spawn $ "pamac-manager")
@@ -178,8 +178,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- ALT + ... KEYS
 
-  , ((mod1Mask, xK_space), spawn $ "rofi -show drun")
+  , ((modMask, xK_space), spawn $ "rofi -show drun")
+  , ((mod1Mask, xK_space), spawn $ "rofi -show window")
   , ((mod1Mask .|. shiftMask, xK_space), spawn $ "rofi -show window")
+  , ((modMask, xK_x), spawn $ "$HOME/.local/scripts/lockscreen.sh" )
+  , ((modMask, xK_BackSpace), spawn $ "rofi -show killall -modi \"killall:~/.local/rofi_scripts/process_killer.sh\"")
   , ((mod1Mask, xK_r), spawn $ "xmonad --restart" )
 
   --CONTROL + SHIFT KEYS
@@ -188,8 +191,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   --SCREENSHOTS
 
-  , ((0, xK_Print), spawn $ "maim -u \"$HOME/Pictures/$(date +%c).png\"")
-  , ((shiftMask, xK_Print), spawn $ "maim -us \"$HOME/Pictures/$(date +%c).png\"" )
+  , ((0, xK_Print), spawn $ "$HOME/.local/scripts/screenshot.sh")
+  , ((shiftMask, xK_Print), spawn $ "$HOME/.local/scripts/screenshot.sh select" )
   -- , ((controlMask .|. shiftMask , xK_Print ), spawn $ "gnome-screenshot -i")
 
 
@@ -225,7 +228,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --  XMONAD LAYOUT KEYS
 
   -- Cycle through the available layout algorithms.
-  , ((modMask, xK_space), sendMessage NextLayout)
+  , ((modMask .|. controlMask, xK_space), sendMessage NextLayout)
 
   --Focus selected desktop
   , ((modMask, xK_k), nextWS)

@@ -15,9 +15,9 @@ cpu=$($HOME/.config/rofi/bin/usedcpu)
 memory=$($HOME/.config/rofi/bin/usedram)
 
 # Options
-shutdown=""
-reboot=""
-lock=""
+shutdown="⏻︁"
+reboot="🗘︁"
+lock="🔒︁"
 suspend=""
 logout=""
 
@@ -91,6 +91,8 @@ case $chosen in
 				bspc quit
 			elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
 				i3-msg exit
+			else
+				loginctl terminate-user $USER
 			fi
 		# elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 			# exit 0
