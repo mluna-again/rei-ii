@@ -1,0 +1,14 @@
+(defpoll current-brightness :interval "1s" "light -G")
+(defwidget brightness[]
+  (box
+    :class "brightness"
+    :space-evenly false
+    (label :text "⏾︁" :class "brightness-down")
+    (scale
+      :class "brightness-scale"
+      :hexpand true
+      :min 1
+      :max 100
+      :value current-brightness
+      :onchange "light -S {}")
+    (label :text "☀︁" :class "brightness-up")))

@@ -1,0 +1,21 @@
+(include "./windows/notifications/header.yuck")
+(include "./windows/notifications/list.yuck")
+
+(defwindow notifications
+  :monitor 0
+  :geometry (geometry :x "-1%"
+            :y "7%"
+            :width "25%"
+            :anchor "top right")
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (box
+    :class "notifications"
+    :orientation "v"
+    :space-evenly false
+    :valign "start"
+    (header)
+    (list)))
+

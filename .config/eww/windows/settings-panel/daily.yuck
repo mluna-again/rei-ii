@@ -1,0 +1,25 @@
+; once every hour
+(defpoll day :interval "3600s" "date '+%d'")
+(defpoll month :interval "3600s" "date '+%b'")
+(defwidget date[]
+  (box
+    :class "daily-date"
+    :orientation "v"
+    (label :text day :class "daily-date-day")
+    month))
+
+; 30 min
+;; TODO: Refactor hard-coded city
+(defpoll climate :interval "1800s" `curl wttr.in/Tlaquepaque?format=3`)
+(defwidget weather[]
+  (box
+    :class "daily-weather"
+    climate))
+
+(defwidget daily[]
+  (box
+    :class "daily"
+    :space-evenly false
+    :halign "fill"
+    (date)
+    (weather)))

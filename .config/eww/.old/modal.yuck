@@ -1,0 +1,6 @@
+(defwidget modal-right[]
+  (box
+    :class "modal-right"
+    (button
+      :class "modal-button"
+      :onclick "eww close example")))

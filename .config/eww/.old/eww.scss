@@ -1,0 +1,77 @@
+* {
+  border-radius: 9px;
+}
+
+.modal-right {
+  background-color: transparent;
+}
+button.modal-button {
+  all: unset;
+  background-color: transparent;
+}
+
+window {
+  font-family: "FontAwesome";
+  background-color: transparent;
+}
+
+.top {
+  padding: 10px;
+}
+
+.date {
+  font-size: 20px;
+  background-color: #282828;
+  border-radius: inherit;
+  padding: 10px 30px;
+}
+
+.weather {
+  background-color: #282828;
+  margin: 0 0 0 10px;
+  border-radius: inherit;
+}
+
+.date .day {
+  color: #d65d0e;
+}
+
+.brightness {
+  background-color: #282828;
+}
+
+scale.brightness trough highlight {
+  all: unset;
+  background-color: #d65d0e;
+  padding: 5px;
+  border-radius: inherit;
+}
+
+scale.brightness trough highlight {
+  all: unset;
+  background-color: #d65d0e;
+  padding: 5px;
+  border-radius: inherit;
+}
+
+.brightness-container {
+  background-color: #282828;
+  // padding: 0 10px 0 10px;
+  padding: 10px;
+  margin: 0 10px 10px 10px;
+}
+
+.cooler-slider {
+  font-size: 24px;
+}
+
+.cooler-slider scale {
+  min-width: 300px;
+}
+
+.moon, .sun {
+  padding: 0 10px;
+}
+
+.panel {
+}

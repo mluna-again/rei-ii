@@ -1,0 +1,137 @@
+(include "./modal.yuck")
+
+(defvar city "Guadalajara")
+
+(defwindow example
+  :monitor 0
+  :geometry (geometry :x "-1%"
+  :y "2%"
+  :width "98%"
+  :height "90%"
+  :anchor "center")
+  :onclick "notify-send a"
+
+  :stacking "fg"
+  :wm-ignore false
+  (box
+    :orientation "h"
+    ; :valign "start"
+    (modal-right)
+    (panel)))
+
+
+;;; ---------------------- DATE ----------------------
+(defpoll time :interval "1s"
+  `date "+%H:%M"`)
+
+(defpoll day :interval "40000s"
+  `date "+%d"`)
+
+(defpoll month :interval "40000s"
+  `date "+%b"`)
+
+
+(defwidget day-widget[]
+  (box
+    :class "day"
+    day))
+
+(defwidget date[]
+  (box
+    :class "date"
+    :height "20px"
+    ; :halign "start"
+    :orientation "v"
+    (day-widget)
+    month))
+;;; ---------------------- DATE ----------------------
+
+
+;;; ---------------------- WEATHER ----------------------
+(defpoll get-weather :interval "40000s"
+  `curl wttr.in/Tlaquepaque?format=3`)
+(defwidget weather[]
+  (box
+    :class "weather"
+    :height "20px"
+    ; :halign "fill"
+    :hexpand true
+    get-weather))
+;;; ---------------------- WEATHER ----------------------
+
+
+;;; ---------------------- LIGHT ----------------------
+(defpoll light :interval "1s" "light -G")
+(defwidget cooler-slider[]
+  (centerbox
+    :class "cooler-slider"
+    (label :text "⏾︁" :halign "start" :class "moon")
+    (scale
+      :class "brightness"
+      :min 1
+      :value light
+      :onchange "light -S {}"
+      )
+    (label :text "☀︁" :halign "end" :class "sun")))
+(defwidget brightness[]
+  (box
+    :class "brightness-container"
+    :orientation "v"
+    "Brightness"
+    (cooler-slider)
+    ))
+;;; ---------------------- LIGHT ----------------------
+
+
+;;; ---------------------- VOLUME ----------------------
+(defpoll volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defwidget cooler-slider-volume[]
+  (centerbox
+    :class "cooler-slider"
+    (image 
+      :path "/usr/share/icons/Flatery-Dark/panel/24/audio-volume-muted-blocking.svg"
+      :width 30 
+      :height 30)
+    (scale
+      :class "brightness"
+      :min 0
+      :max 101
+      :value volume
+      :onchange "amixer -q sset Master {}%"
+      )
+    (image 
+      :path "/usr/share/icons/Flatery-Dark/actions/24/player-volume.svg" 
+      :width 30 
+      :height 30)))
+(defwidget volume[]
+  (box
+    :class "brightness-container"
+    :orientation "v"
+    "Volume"
+    (cooler-slider-volume)
+    ))
+;;; ---------------------- VOLUME ----------------------
+
+
+;;; ---------------------- DATE ----------------------
+(defwidget date-info[]
+  (box
+    :space-evenly false
+    :class "top"
+    :valign "start"
+    :halign "fill"
+    :orientation "h"
+    ; :spacing 10
+    (date)
+    (weather)))
+;;; ---------------------- DATE ----------------------
+
+
+(defwidget panel[]
+  (box
+    :class "panel"
+    :orientation "v"
+    (date-info)
+    (brightness)
+    (volume)
+    (modal-right)))

@@ -1,0 +1,14 @@
+(defpoll current-volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defwidget volume[]
+  (box
+    :class "volume"
+    :space-evenly false
+    (image :path "/usr/share/icons/Flatery-Dark/panel/16/audio-volume-muted-blocking.svg" :width 16 :height 16 :class "volume-down")
+    (scale
+      :class "volume-scale"
+      :hexpand true
+      :min 0
+      :max 101
+      :value current-volume
+      :onchange "amixer sset Master {}%")
+    (image :path "/usr/share/icons/Flatery-Dark/panel/16/audio-volume-high.svg" :width 16 :height 16 :class "volume-down")))

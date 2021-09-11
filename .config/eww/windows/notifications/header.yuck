@@ -1,0 +1,6 @@
+(defwidget header[]
+  (revealer
+    :reveal true
+    :transition "slideright"
+    :duration "4s"
+    (label :text "Notifications" :style "font-size: 30px; padding: 10px 5px;")))

@@ -1,0 +1,38 @@
+; (deflisten spotify-status "playerctl --player spotify --follow metadata --format '{{ artist }} - {{title}}' 2>/dev/null")
+; (deflisten spotify-is-playing "playerctl --player spotify --follow status 2>/dev/null")
+(deflisten spotify-status :interval "1s" "playerctl --player spotify --follow metadata --format '{{ artist }} - {{title}}' 2>/dev/null")
+(deflisten spotify-is-playing :interval "1s" "playerctl --player spotify --follow status 2>/dev/null")
+
+(defwidget spotify-info[]
+  (box
+    :class "spotify-box"
+    :space-evenly false
+    :halign "center"
+    (image :path "/usr/share/icons/NordArc-Icons/22x22/apps/spotify.svg" :width 26 :height 26)
+    (label :limit-width 25 :text {spotify-status ?: "Nothing playing..."} :class "spotify-text")))
+
+(defvar pause-icon "/usr/share/icons/NordArc-Icons/22x22/actions/player_stop.svg")
+(defvar play-icon "/usr/share/icons/NordArc-Icons/22x22/actions/player_start.svg")
+(defwidget spotify-controls[]
+  (centerbox
+    :class "spotify-controls"
+    :orientation "h"
+    (button
+      :onclick "playerctl --player spotify previous"
+      :cursor "pointer"
+      (image :path "/usr/share/icons/NordArc-Icons/22x22/actions/player_rew.svg" :width 26 :height 26))
+    (button
+      :onclick "~/.config/eww/scripts/settings-panel/spotify-play-pause.sh"
+      :cursor "pointer"
+      (image :path {spotify-is-playing == "Playing" ? "${pause-icon}" : "${play-icon}"} :width 26 :height 26))
+    (button
+      :onclick "playerctl --player spotify next"
+      :cursor "pointer"
+      (image :path "/usr/share/icons/NordArc-Icons/22x22/actions/player_fwd.svg" :width 26 :height 26))))
+
+(defwidget spotify[]
+  (box
+    :class "spotify"
+    :orientation "v"
+    (spotify-info)
+    (spotify-controls)))
