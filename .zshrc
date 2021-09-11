@@ -1,6 +1,7 @@
 alias pam="sudo pacman"
 alias vv="v ~/.vimrc"
 alias vz="v ~/.zshrc"
+alias vm="v ~/.xmonad/xmonad.hs"
 
 alias dots='yadm'
 alias dotss="dots status"
@@ -14,7 +15,7 @@ alias dotsd="dots diff"
 # [ -d $HOME/.dots ] && dots config --local status.showUntrackedFiles no
 
 export PATH="$PATH:$HOME/rei/cool-shit/"
-[[ -d ~/.local/scripts ]] && source ~/.local/scripts/*.sh
+# [[ -d ~/.local/scripts ]] && source ~/.local/scripts/*.sh
 # Source my functions
 # Custom commands
 alias ls="ls --color"
@@ -266,6 +267,7 @@ export PYTHONPATH=/usr/share/python3
 # source ~/.local/bin/virtualenvwrapper.sh
 # eval "$(starship init zsh)"
 alias rice='curl -L rum.sh/ricebowl'
+alias rice='curl -L git.io/rice'
 
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
