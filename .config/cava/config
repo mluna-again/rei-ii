@@ -1,0 +1,10 @@
+[general]
+bar_width = 1
+bar_spacing = 1
+
+[color]
+gradient = 1
+gradient_count = 2
+gradient_color_1 = '#fe8019'
+gradient_color_2 = '#d65d0e'
+monstercat = 1
