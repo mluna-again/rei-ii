@@ -6,7 +6,11 @@ alias dots='yadm'
 alias dotss="dots status"
 alias dotsa="dots add"
 alias dotsc="dots commit -m"
+alias dotsC="dots checkout"
+alias dotsR="dots reset --hard"
 alias dotsp="dots push"
+alias dotsb="dots branch"
+alias dotsd="dots diff"
 # [ -d $HOME/.dots ] && dots config --local status.showUntrackedFiles no
 
 export PATH="$PATH:$HOME/rei/cool-shit/"
