@@ -1,9 +1,12 @@
-# Dotfiles
+# Rei-II rice (completely unrelated name, i know, but the original repo was named rei so whatever)
+
+## Previews
+[xmonad](previes/home.png)
 
 ## Programs
 * rofi
 * polybar
-* i3lock
+* i3lock-color
 * eww
 * kitty
 * maim
