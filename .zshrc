@@ -2,11 +2,12 @@ alias pam="sudo pacman"
 alias vv="v ~/.vimrc"
 alias vz="v ~/.zshrc"
 
-alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+alias dots='yadm'
 alias dotss="dots status"
 alias dotsa="dots add"
 alias dotsc="dots commit -m"
 alias dotsp="dots push"
+# [ -d $HOME/.dots ] && dots config --local status.showUntrackedFiles no
 
 export PATH="$PATH:$HOME/rei/cool-shit/"
 [[ -d ~/.local/scripts ]] && source ~/.local/scripts/*.sh
