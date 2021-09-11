@@ -1,0 +1,5 @@
+(defpoll entries :interval "1s" "~/.config/eww/scripts/notifications/read.sh")
+
+(defwidget list[]
+  (box
+    (literal :content entries)))

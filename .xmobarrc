@@ -1,0 +1,62 @@
+-- Thanks to krive001 to share the code of xmobar
+-- https://github.com/krive001/xmonad-xmobar
+
+Config {
+    font = "xft:Noto Sans LGC:size=11:style=Regular",
+    additionalFonts = ["xft:Noto Sans:size=10:style=Bold","xft:FontAwesome:style=Regular:size=13"]
+   , bgColor          = "#2F343F"
+   , fgColor          = "white"
+   , position         = TopSize C 100 30
+   , textOffset       = -1
+   , iconOffset       = -8
+   , alpha            = 255
+   , border           = BottomB
+   , borderWidth      = 0
+   , borderColor      = "#c0c5ce"
+   , lowerOnStart     = True
+   , hideOnStart      = False
+   , allDesktops      = True
+   , overrideRedirect = True
+   , pickBroadest     = True
+   , persistent       = True
+   , sepChar          = "%"
+   , alignSep         = "}{"
+   , template         = "<fc=white><fn=2><action=button=4><action=button=5>%UnsafeStdinReader%</action></action></fn></fc>}<action=`gsimplecal` button=1>%date%</action>{<fc=white> %update% |<fn=2>  </fn></fc> %kbd% | %coretemp% | %multicpu% | %memory% | <action=`pavucontrol` button=3><action=`XMMute` button=1><action=button=4><action=button=5>%XVol% </action></action></action></action>"
+   , commands         =
+      [ Run MultiCpu                            [ "--template" , "<fc=white><fn=2>  </fn></fc><fc=white></fc><total> %"
+                                                , "--Low"      , "50"        -- units: %
+                                                , "--High"     , "85"        -- units: %
+                                                , "--low"      , "#ffffff"
+                                                , "--normal"   , "#ffffff"
+                                                , "--high"     , "#fd0537"
+                                                ] 10
+
+      , Run CoreTemp                            [ "--template" , "<fc=white><fn=2>  </fn></fc><fc=green></fc><core0> °C"
+                                                , "--Low"      , "2"         -- units: °C
+                                                , "--High"     , "80"        -- units: °C
+                                                , "--low"      , "#ffffff"
+                                                , "--normal"   , "#ffffff"
+                                                , "--high"     , "#fd0537"
+                                                ] 10
+
+      , Run Memory                              [ "--template" ,"<fc=white><fn=2> </fn></fc><fc=white></fc><usedratio> %"
+                                                ] 10
+
+
+
+--      , Run Wireless           "wlp0s20u2u3"        ["-t", "<fc=green>Wifi:</fc> <quality>"
+--                                                ] 10
+
+      , Run Com "/bin/bash" ["-c", "XMgetvolume"]  "XVol" 10
+
+
+      , Run Kbd                                [ ("be" , "<fc=#FFFFFF>BE</fc>")
+                                                , ("us" , "<fc=#FFFFFF>US</fc>")]
+
+      , Run UnsafeStdinReader
+
+	  , Run Com "/bin/bash" ["-c",  "XMKupdate"] "update" 600
+
+      , Run Date                                "%Y-%m-%d  %H:%M" "date" 60]
+
+}

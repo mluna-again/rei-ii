@@ -1,0 +1,129 @@
+// gruvbox u///u
+$background: #282828;
+$background-dark: #1d2021;
+$background-light: #928374;
+$yellow: #d79921;
+
+* {
+  border-radius: 10px;
+  font-family: "FontAwesome";
+  font-size: 16px;
+}
+
+window {
+  // background-color: $background-dark;
+  background-color: transparent;
+}
+
+.settings-panel {
+  background-color: $background-dark;
+}
+
+.daily {
+  padding: 10px;
+}
+
+.daily-date {
+  background-color: $background;
+  padding: 10px 20px;
+}
+
+.daily-date-day {
+  color: $yellow;
+}
+
+.daily-weather {
+  background-color: $background;
+  margin: 0 0 0 10px;
+  padding: 10px 35px;
+}
+
+
+.volume {
+  background-color: $background;
+  margin: 10px;
+}
+
+.volume-scale trough highlight {
+  all: unset;
+  background-color: $yellow;
+  padding: 3px;
+  border-radius: inherit;
+}
+
+.volume-down, .volume-up {
+  padding: 10px 20px;
+}
+
+
+.brightness {
+  background-color: $background;
+  margin: 10px;
+}
+
+.brightness-scale trough highlight {
+  all: unset;
+  background-color: $yellow;
+  padding: 3px;
+  border-radius: inherit;
+}
+
+.brightness-down, .brightness-up {
+  padding: 10px 20px;
+}
+
+
+
+.spotify {
+  background-color: $background;
+  margin: 10px;
+  padding: 10px;
+}
+
+.spotify-box {
+  padding: 0 20px;
+}
+
+.spotify-text {
+  margin-left: 10px;
+}
+
+.spotify-controls button {
+  all: unset;
+  background-color: transparent;
+  border-radius: inherit;
+}
+
+
+
+.close-me {
+  all: unset;
+  background-color: transparent;
+}
+
+.close-me-container {
+  background-color: transparent;
+}
+
+
+
+.system-menu-icon {
+  all: unset;
+  background-color: transparent;
+  border-radius: inherit;
+}
+
+
+
+.notifications {
+  background-color: $background-dark;
+}
+
+.notifications-list {
+  padding: 20px 0;
+}
+
+.notifications-item-title {
+  margin: 5px;
+}
+
