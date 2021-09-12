@@ -6,14 +6,14 @@ from os import environ
 argv = argv[1:]
 
 # truncate text
-if len(argv[1]) >= 30:
-    argv[1][0:15]
-    title = f'{argv[1]}...'
+if len(argv[1]) >= 15:
+    title = argv[1][0:15]
+    title += '...'
 else:
     title = argv[1]
-if len(argv[2]) >= 30:
-    argv[2][0:30]
-    description = f'{argv[2]}...'
+if len(argv[2]) >= 20:
+    description = argv[2][0:20]
+    description += '...'
 else:
     description = argv[2]
 
