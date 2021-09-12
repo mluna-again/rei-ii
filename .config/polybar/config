@@ -96,9 +96,9 @@ font-1 = "FiraCode Nerd Font:size=10;2"
 ;font-2 = "JetBrains Mono:scale=10;2"
 font-2 = "LXGW WenKai:size=10;2"
 
-modules-left = ewmh
+modules-left = ewmh date
 modules-center = xwindow
-modules-right = date pulseaudio-control battery wireless-network panel notifications
+modules-right = pulseaudio-control battery wireless-network panel notifications
 
 ;tray-detached = true
 ;tray-offset-x = -5

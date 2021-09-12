@@ -1,7 +1,9 @@
 #! /bin/bash
 
+[ ! -f $HOME/.cache/notifications ] && echo "(label :text 'Come back later...' :class 'notifications-empty')" && exit 0
+
 echo "(box :orientation 'v'"
-tail -n 10 $HOME/.cache/notifications | while read line; do
+tail -n 7 $HOME/.cache/notifications | while read line; do
   echo "(box :orientation 'v' :class 'notification-wrapper'"
 
   title=$(awk -F " please-dont-write-me " '{ print $1 }' <<< $line)
