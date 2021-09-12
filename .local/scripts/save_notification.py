@@ -7,7 +7,7 @@ argv = argv[1:]
 
 # truncate text
 if len(argv[1]) >= 30:
-    argv[1][0:30]
+    argv[1][0:15]
     title = f'{argv[1]}...'
 else:
     title = argv[1]

@@ -2,4 +2,5 @@
 
 (defwidget list[]
   (box
+    :width 30
     (literal :content entries)))
