@@ -135,6 +135,7 @@ window {
 }
 
 .notification-title {
+  margin: 0 4px;
   font-size: 23px;
   font-weight: bold;
 }
@@ -142,3 +143,28 @@ window {
 .notification-wrapper:nth-child(2n) {
   background-color: $gray-2;
 }
+
+.notification-toggle {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-right: 20px;
+  opacity: 0.5;
+}
+
+.notification-toggle.active {
+  opacity: 1;
+}
+
+.notification-clean {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.notifications-empty {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
