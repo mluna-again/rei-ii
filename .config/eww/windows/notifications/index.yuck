@@ -8,7 +8,7 @@
             :width "25%"
             :anchor "top right")
   :stacking "fg"
-  :reserve (struts :distance "40px" :side "top")
+  :reserve (struts :distance "0px" :side "top")
   :windowtype "dock"
   :wm-ignore false
   (box

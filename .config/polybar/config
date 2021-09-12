@@ -91,14 +91,14 @@ module-margin-left = 3
 module-margin-right = 3
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "FontAwesome:size=10;2"
+font-0 = "FontAwesome:style=Regular:size=10;2"
 font-1 = "FiraCode Nerd Font:size=10;2"
-font-2 = "JetBrains Mono:scale=10;2"
-font-3 = "LXGW WenKai:size=10;2"
+;font-2 = "JetBrains Mono:scale=10;2"
+font-2 = "LXGW WenKai:size=10;2"
 
 modules-left = ewmh
 modules-center = xwindow
-modules-right = date pulseaudio-control battery wireless-network panel
+modules-right = date pulseaudio-control battery wireless-network panel notifications
 
 ;tray-detached = true
 ;tray-offset-x = -5
@@ -1168,8 +1168,9 @@ format-offset = 0
 type = custom/script
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-exec = echo "︁"
-click-left = ~/.config/polybar/scripts/toggle-notifications.sh
+exec = echo "︁"
+label = %{T1}%output%%{T-}
+click-left = "eww windows | grep '*' || eww open-many close-me notifications"
 format-padding = 0
 format-margin = 0
 format-offset = 0
