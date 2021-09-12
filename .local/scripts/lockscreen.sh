@@ -38,3 +38,5 @@ i3lock \
 --no-modkey-text             \
 --time-size=50               \
 --radius=120
+
+[ "$1" = "suspend" ] && systemctl suspend
