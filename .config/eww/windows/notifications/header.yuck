@@ -1,6 +1,11 @@
+(defpoll notifications-status :interval "1s" "dunstctl is-paused")
+
 (defwidget header[]
-  (revealer
-    :reveal true
-    :transition "slideright"
-    :duration "4s"
-    (label :text "Notifications" :style "font-size: 30px; padding: 10px 5px;")))
+  (box
+    (label :text "Notifications" :style "font-size: 30px; padding: 10px 5px;")
+      (box
+        :halign 'end'
+        (button :class "notification-clean" :onclick "rm $HOME/.cache/notifications"
+          (image :path "/usr/share/icons/NordArc-Icons/22x22/actions/user-trash.svg" :width 19 :height 19))
+        (button :class "notification-toggle ${ notifications-status == 'false' ? 'active' : '' }" :onclick "dunstctl set-paused toggle"
+          (image :path "/usr/share/icons/NordArc-Icons/16x16/actions/bell.svg" :width 16 :height 16)))))

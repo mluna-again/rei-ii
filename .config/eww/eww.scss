@@ -3,6 +3,8 @@ $background: #282828;
 $background-dark: #1d2021;
 $background-light: #928374;
 $yellow: #d79921;
+$gray-1: #3c3836;
+$gray-2: #504945;
 
 * {
   border-radius: 10px;
@@ -117,13 +119,52 @@ window {
 
 .notifications {
   background-color: $background-dark;
+  padding: 15px 0;
 }
 
-.notifications-list {
-  padding: 20px 0;
+.notification-wrapper {
+  background-color: $gray-1;
+  margin: 5px 10px;
+  padding: 5px;
+  border-radius: 4px;
 }
 
-.notifications-item-title {
-  margin: 5px;
+.notification-title,
+.notification-content {
+  margin: 2px;
+}
+
+.notification-title {
+  margin: 0 4px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.notification-wrapper:nth-child(2n) {
+  background-color: $gray-2;
+}
+
+.notification-toggle {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-right: 20px;
+  opacity: 0.5;
+}
+
+.notification-toggle.active {
+  opacity: 1;
+}
+
+.notification-clean {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.notifications-empty {
+  margin: 10px 0;
+  font-size: 24px;
 }
 
