@@ -1,0 +1,23 @@
+(defpoll get-weather :interval "3600s"
+  `curl wttr.in/$MY_CITY?format=3`)
+
+(defpoll day :interval "3600s" "date +%d")
+(defpoll month :interval "3600s" "date +%b")
+
+(defwidget date[]
+  (box
+    :class "daily-date"
+    :orientation "v"
+    day
+    month))
+
+(defwidget daily[]
+  (box
+    :height 20
+    :space-evenly false
+    ; :halign "start"
+    :halign "fill"
+    (date)
+    (box
+      :class "daily-weather"
+      get-weather)))

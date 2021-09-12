@@ -1,4 +1,4 @@
-(include "./widgets/settings-panel/date.yuck")
+(include "./widgets/settings-panel/daily.yuck")
 
 (defwindow settings-panel
   :monitor 0
@@ -11,5 +11,5 @@
   :reserve (struts :distance "40px" :side "top")
   :windowtype "dock"
   :wm-ignore false
-  (date))
+  (daily))
 
