@@ -1,15 +1,15 @@
 #! /bin/bash
 
+echo "(box :orientation 'v'"
+tail -n 10 $HOME/.cache/notifications | while read line; do
+  echo "(box :orientation 'v' :class 'notification-wrapper'"
 
-IFS='\n'
-echo '(box :orientation "v" :class "notifications-list"'
-for notification in $(tail -10 ~/.config/eww/scripts/notifications/list.text | sed '$!N;s/\n/  /'); do
-	title=$(awk -F " " '{ print $1 }' <<< $notification)
-	content=$(awk -F " " '{ print $2 }' <<< $notification)
-	echo $title $content
-	# echo '(box :orientation "v"'
-	# echo "(label :text \"$title\" :class 'notifications-item-title')"
-	# echo "(label :text \"$content\" :class 'notifications-item-content')"
-	# echo ')'
-done
+  title=$(awk -F " please-dont-write-me " '{ print $1 }' <<< $line)
+  content=$(awk -F " please-dont-write-me " '{ print $2 }' <<< $line)
+
+  echo "(label :halign 'start' :text \"$title\" :class 'notification-title')"
+  echo "(label :halign 'start' :text \"$content\" :class 'notification-content')"
+
+  echo ")"
+done 
 echo ")"

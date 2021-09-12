@@ -1,4 +1,5 @@
 [global]
+
     separator_height = 10
     font = Hack 13
 
@@ -246,3 +247,10 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
+
+
+[notification-panel]
+  appname = "*"
+  summary = "*"
+  urgency = ""
+  script = "~/.local/scripts/save_notification.py"
