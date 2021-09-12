@@ -1,6 +1,6 @@
 # alias pam="sudo pacman"
 pam() {
-  sudo pacman "$@" || echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck."
+  sudo pacman "$@" || (echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck.")
 }
 alias vv="v ~/.vimrc"
 alias vz="v ~/.zshrc"
