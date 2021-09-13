@@ -1,0 +1,17 @@
+set relativenumber
+set commentary
+
+imap <silent> jj <ESC>
+nmap <silent> ss <Action>(ReformatCode)|<Action>(SaveDocument)
+nmap <silent> gt <Action>(NextTab)
+nmap <silent> gr <Action>(PreviousTab)
+nmap <silent> tt <Action>(CloseContent)
+nmap <silent> ff <Action>(SearchEverywhere)
+nmap <silent> dh  :noh<CR>
+nmap <silent> '' ``
+nmap <silent> ! :ls<CR>
+nmap <silent> - <C-e>
+nmap <silent> ¿ <C-y>
+nmap <silent> m <C-d>
+nmap <silent> M <C-b>
+map  <silent> ñ gc
