@@ -21,6 +21,7 @@ import XMonad.Layout.Gaps
 import XMonad.Layout.ResizableTile
 ---import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen (fullscreenFull)
+import XMonad.Layout.Grid
 import XMonad.Layout.Cross(simpleCross)
 import XMonad.Layout.Spiral(spiral)
 import XMonad.Layout.ThreeColumns
@@ -29,7 +30,8 @@ import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.IndependentScreens
 
 
-import XMonad.Layout.CenteredMaster(centerMaster)
+import XMonad.Layout.CenteredMaster
+import XMonad.Layout.Grid
 
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
@@ -109,7 +111,7 @@ myManageHook = composeAll . concat $
 --         tiled_ratio = 1/2
 
 
-myLayout = spacingRaw True (Border 0 5 5 5) True (Border 5 5 5 5) True $ avoidStruts $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full
+myLayout = spacingRaw True (Border 5 5 5 5) True (Border 5 5 5 5) True $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full 
     where
         tiled = Tall nmaster delta tiled_ratio
         nmaster = 1
@@ -328,7 +330,7 @@ main = do
             --myBaseConfig { keys = belgianKeys <+> keys belgianConfig }
 
                 {startupHook = myStartupHook
-, layoutHook = gaps [(U,45), (D,5), (R,5), (L,5)] $ myLayout ||| layoutHook myBaseConfig
+, layoutHook = gaps [(U,45), (D,5), (R,5), (L,5)] $ myLayout 
 , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
 , modMask = myModMask
 , borderWidth = myBorderWidth

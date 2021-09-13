@@ -2,6 +2,9 @@
 pam() {
   sudo pacman "$@" || (echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck.")
 }
+
+alias xr="xmonad --recompile && xmonad --restart"
+
 alias vv="v ~/.vimrc"
 alias vz="v ~/.zshrc"
 alias vm="v ~/.xmonad/xmonad.hs"
