@@ -44,6 +44,7 @@ import qualified DBus.Client as D
 
 myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart.sh"
+    spawn "unclutter --timeout 2 &"
     setWMName "LG3D"
 
 -- colours
