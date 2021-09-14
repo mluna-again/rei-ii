@@ -4,6 +4,7 @@
 ![xmonad](previews/home.png)
 ![eww](previews/eww.png)
 ![rofi](previews/rofi.png)
+![idk](previews/demasiado-humano.png)
 ![lockscreen](previews/lockscreen.png)
 
 ## Programs
