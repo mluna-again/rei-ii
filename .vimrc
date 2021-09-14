@@ -1,5 +1,6 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
+Plug 'psliwka/vim-smoothie'
 Plug 'ap/vim-css-color'
 Plug 'elkowar/yuck.vim'
 Plug 'adamclerk/vim-razor'
