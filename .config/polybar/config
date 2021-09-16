@@ -38,9 +38,9 @@ format-margin =
 format-offset =
 
 [colors]
-background = #282828
-foreground = #928374
-alert = #d08770
+background = #282a36
+foreground = #f8f8f2
+alert = #ff5555
 volume-min = #a3be8c
 volume-med = #ebcb8b
 volume-max = #bf616a
@@ -448,14 +448,14 @@ format = <label-state>
 label-monitor = %name%
 
 label-active = %name%
-label-active-foreground = #d65d0e
+label-active-foreground = #ff79c6
 label-active-background = ${colors.background}
-label-active-underline= #d65d0e
+label-active-underline= #ff79c6
 label-active-padding = 2
 
 label-occupied = %name%
 label-occupied-background = ${colors.background}
-label-occupied-foreground = #d65d0e
+label-occupied-foreground = #ff79c6
 label-occupied-padding = 2
 
 label-urgent = %name%
