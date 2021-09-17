@@ -46,6 +46,88 @@ volume-med = #ebcb8b
 volume-max = #bf616a
 
 
+# New bars
+[bar/workspaces]
+monitor = ${env:MONITOR}
+width = 20%
+height = 30
+offset-x = 5
+offset-y = 6
+radius = 0
+fixed-center = true
+bottom = true
+;separator = |
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+;wm-restack = xmonad
+override-redirect = true
+
+enable-ipc = true
+
+border-size = 0
+;border-left-size = 0
+;border-right-size = 25
+;border-top-size = 0
+;border-bottom-size = 25
+border-color = #00000000
+
+padding-left = 0
+padding-right = 5
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "FontAwesome:style=Regular:size=10;2"
+font-1 = "FiraCode Nerd Font:size=10;2"
+font-2 = "LXGW WenKai:size=10;2"
+
+modules-center = ewmh
+
+[bar/info]
+monitor = ${env:MONITOR}
+width = 25%
+height = 30
+offset-x = 75%:-5
+offset-y = 6
+radius = 0
+fixed-center = true
+bottom = true
+;separator = |
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+;wm-restack = xmonad
+override-redirect = true
+
+enable-ipc = true
+
+border-size = 0
+;border-left-size = 0
+;border-right-size = 25
+;border-top-size = 0
+;border-bottom-size = 25
+border-color = #00000000
+
+padding-left = 0
+padding-right = 5
+
+module-margin-left = 0
+module-margin-right = 5
+
+font-0 = "FontAwesome:style=Regular:size=10;2"
+font-1 = "FiraCode Nerd Font:size=10;2"
+font-2 = "LXGW WenKai:size=10;2"
+
+modules-center = pulseaudio-control battery date
 ################################################################################
 ################################################################################
 ############                  MAINBAR-BSPWM                         ############

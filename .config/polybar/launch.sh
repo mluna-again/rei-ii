@@ -94,10 +94,12 @@ case $desktop in
     xmonad|/usr/share/xsessions/xmonad)
     if [ $count = 1 ]; then
       m=$(xrandr --query | grep " connected" | cut -d" " -f1)
-      MONITOR=$m polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
+        MONITOR=$m polybar --reload workspaces -c ~/.config/polybar/config &
+        MONITOR=$m polybar --reload info -c ~/.config/polybar/config &
     else
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
+        MONITOR=$m polybar --reload workspaces -c ~/.config/polybar/config &
+        MONITOR=$m polybar --reload info -c ~/.config/polybar/config &
       done
     fi
     # second polybar at bottom

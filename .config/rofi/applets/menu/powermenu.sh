@@ -8,7 +8,7 @@
 style="$($HOME/.config/rofi/applets/menu/style.sh)"
 
 dir="$HOME/.config/rofi/applets/menu/configs/$style"
-rofi_command="rofi -theme $dir/powermenu.rasi"
+rofi_command="rofi -theme $dir/powermenu.rasi -location 2"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 cpu=$($HOME/.config/rofi/bin/usedcpu)

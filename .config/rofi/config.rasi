@@ -1,6 +1,6 @@
 configuration {
   drun-display-format: "{name}";
-  theme: "gruvbox";
+  theme: "dracula";
 /*	modi: "window,run,ssh";*/
 /*	font: "mono 12";*/
 /*	location: 0;*/

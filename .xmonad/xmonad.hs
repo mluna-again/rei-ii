@@ -112,7 +112,7 @@ myManageHook = composeAll . concat $
 --         tiled_ratio = 1/2
 
 
-myLayout = spacingRaw True (Border 5 5 5 5) True (Border 5 5 5 5) True $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full 
+myLayout = spacingRaw True (Border 0 0 5 0) True (Border 0 0 5 0) True $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full 
     where
         tiled = Tall nmaster delta tiled_ratio
         nmaster = 1
@@ -139,13 +139,13 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ----------------------------------------------------------------------
   -- SUPER + FUNCTION KEYS
-
   [ ((modMask, xK_f), sendMessage $ Toggle NBFULL)
   , ((modMask, xK_q), kill )
   , ((modMask, xK_Escape), spawn $ "xkill" )
   , ((modMask, xK_Return), spawn $ "kitty" )
+  , ((modMask, xK_plus), spawn $ "light -A 10")
+  , ((modMask, xK_minus), spawn $ "light -U 10")
   -- FUNCTION KEYS
-  , ((0, xK_F12), spawn $ "xfce4-terminal --drop-down" )
 
   -- SUPER + SHIFT KEYS
 
@@ -181,11 +181,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- ALT + ... KEYS
 
-  , ((modMask, xK_space), spawn $ "rofi -show drun")
-  , ((mod1Mask, xK_space), spawn $ "rofi -show window")
-  , ((mod1Mask .|. shiftMask, xK_space), spawn $ "rofi -show window")
-  , ((modMask, xK_x), spawn $ "$HOME/.local/scripts/lockscreen.sh" )
-  , ((modMask, xK_BackSpace), spawn $ "rofi -show killall -modi \"killall:~/.local/rofi_scripts/process_killer.sh\"")
+  , ((modMask, xK_space), spawn $ "rofi -show drun -location 2")
+  , ((mod1Mask, xK_space), spawn $ "rofi -show window -location 2")
+  , ((modMask, xK_x), spawn $ "$HOME/.config/rofi/applets/menu/powermenu.sh -location 2" )
+  , ((modMask, xK_BackSpace), spawn $ "rofi -show killall -modi \"killall:~/.local/rofi_scripts/process_killer.sh\" -location 2")
   , ((mod1Mask, xK_r), spawn $ "xmonad --restart" )
 
   --CONTROL + SHIFT KEYS
@@ -331,7 +330,7 @@ main = do
             --myBaseConfig { keys = belgianKeys <+> keys belgianConfig }
 
                 {startupHook = myStartupHook
-, layoutHook = gaps [(U,45), (D,5), (R,5), (L,5)] $ myLayout 
+, layoutHook = gaps [(U,5), (D,45), (R,5), (L,5)] $ myLayout 
 , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
 , modMask = myModMask
 , borderWidth = myBorderWidth
