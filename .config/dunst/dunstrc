@@ -1,6 +1,7 @@
 [global]
     separator_height = 10
     font = Hack 13
+    max_icon_size = 40
     # allow a small subset of html markup:
     # <b>bold</b>
     # <i>italic</i>
@@ -51,7 +52,7 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x10-30-20"
+    geometry = "300x10-30+20"
     # geometry = "0x0-25+25"
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -119,19 +120,19 @@
     context = mod4+shift+i
 [urgency_low]
     frame_color = "#1d2021"
-    foreground = "#f8f8f2"
+    foreground = "#bd93f9"
     background = "#282a36"
-    #background = "#2B313C"
+    #background = "#282a36"
     timeout = 10
 [urgency_normal]
     frame_color = "#1d2021"
-    foreground = "#f8f8f2"
+    foreground = "#bd93f9"
     background = "#282a36"
     #background = "#2B313C"
     timeout = 10
 [urgency_critical]
     frame_color = "#1d2021"
-    foreground = "#f8f8f2"
+    foreground = "#bd93f9"
     background = "#282a36"
     #background = "#2B313C"
     timeout = 0
@@ -152,6 +153,11 @@
     appname = Amarok
     summary = "Now playing"
     urgency = low
+[Spotify]
+    appname = Spotify
+    summary = "Now playing"
+    urgency = low
+    format = "<b>Now Playing</b>\n%s\n%b"
 [notification-panel]
   appname = "*"
   summary = "*"

@@ -2,10 +2,11 @@
 
 ## Previews
 ![xmonad](previews/home.png)
-![eww](previews/eww.png)
-![rofi](previews/rofi.png)
-![idk](previews/demasiado-humano.png)
-![lockscreen](previews/lockscreen.png)
+![neovim](previews/vim.png)
+![rofi](previews/launcher.png)
+![rofi](previews/power.png)
+![rofi](previews/switcher.png)
+![lockscreen](previews/lock.png)
 
 ## Programs
 * rofi

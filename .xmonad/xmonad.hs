@@ -112,7 +112,7 @@ myManageHook = composeAll . concat $
 --         tiled_ratio = 1/2
 
 
-myLayout = spacingRaw True (Border 0 0 5 0) True (Border 0 0 5 0) True $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full 
+myLayout = spacingRaw True (Border 5 5 5 5) True (Border 5 5 5 5) True $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full 
     where
         tiled = Tall nmaster delta tiled_ratio
         nmaster = 1
@@ -183,7 +183,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   , ((modMask, xK_space), spawn $ "rofi -show drun -location 2")
   , ((mod1Mask, xK_space), spawn $ "rofi -show window -location 2")
-  , ((modMask, xK_x), spawn $ "$HOME/.config/rofi/applets/menu/powermenu.sh -location 2" )
+  , ((modMask, xK_x), spawn $ "rofi -show power -modi \"power:~/.local/rofi_scripts/power_menu.sh\" -location 2" )
   , ((modMask, xK_BackSpace), spawn $ "rofi -show killall -modi \"killall:~/.local/rofi_scripts/process_killer.sh\" -location 2")
   , ((mod1Mask, xK_r), spawn $ "xmonad --restart" )
 

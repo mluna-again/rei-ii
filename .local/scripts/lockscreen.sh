@@ -2,15 +2,15 @@
 
 BLANK='#00000000'
 CLEAR='#00000000'
-DEFAULT='#282828'
-TEXT='#ebdbb2'
+DEFAULT='#282a36'
+TEXT='#282a36'
 WRONG='#cc241d'
 VERIFYING='#00000000'
 
-[ ! -f $HOME/.cache/lockscreen.png ] && convert -resize $($HOME/.local/scripts/get_res.sh) $HOME/Pictures/wallpapers/gods_die_too.png $HOME/.cache/lockscreen.png
+[ ! -f $HOME/.cache/lockscreen.png ] && convert -resize $($HOME/.local/scripts/get_res.sh) $HOME/Pictures/wallpapers/rei.jpg $HOME/.cache/lockscreen.jpg
 
 i3lock \
--i $HOME/.cache/lockscreen.png \
+-i $HOME/.cache/lockscreen.jpg \
 --insidever-color=$CLEAR     \
 --ringver-color=$VERIFYING   \
 \
@@ -33,10 +33,8 @@ i3lock \
 --blur 5                     \
 --clock                      \
 --time-str="%I:%M %P"        \
---verif-text="Hmmm..."       \
---wrong-text="Wrong!"        \
 --no-modkey-text             \
 --time-size=50               \
+-u \
 --radius=120
 
-[ "$1" = "suspend" ] && systemctl suspend

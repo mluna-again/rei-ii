@@ -6,31 +6,30 @@ print_options() {
 	echo "Lock screen"
 	echo "Log out"
 	echo "Suspend"
+}
+
+menu() {
+	case "$1" in
+		"Shut down")
+			systemctl poweroff
+			;;
+		"Reboot")
+			systemctl reboot
+			;;
+		"Lock screen")
+			$HOME/.local/scripts/lockscreen.sh 2>/dev/null >/dev/null &
+			;;
+		"Log out")
+			loginctl terminate-user $USER
+			;;
+		"Suspend")
+			$HOME/.local/scripts/lockscreen.sh 2>/dev/null >/dev/null & systemctl suspend
+			;;
+	esac
 	exit 0
 }
 
 echo -en "\0prompt\x1f⏻︁\n"
-[ -z "$1" ] && print_options
+[ -n "$1" ] && menu "$1" && exit 0
+print_options
 
-case "$1" in
-	"Shut down")
-		echo "Shutting down..."
-		systemctl poweroff
-		;;
-	"Reboot")
-		echo "Rebooting..."
-		systemctl reboot
-		;;
-	"Lock screen")
-		echo "Locking screen..."
-		~/.local/scripts/lockscreen.sh
-		;;
-	"Log out")
-		echo "Logging out"
-		loginctl terminate-user $USER
-		;;
-	"Suspend")
-		echo "Suspending..."
-		~/.local/scripts/lockscreen.sh & sleep 3 && systemctl suspend
-		;;
-esac

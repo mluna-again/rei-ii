@@ -39,7 +39,7 @@ format-offset =
 
 [colors]
 background = #282a36
-foreground = #f8f8f2
+foreground = #bd93f9
 alert = #ff5555
 volume-min = #a3be8c
 volume-med = #ebcb8b
@@ -69,15 +69,11 @@ override-redirect = true
 
 enable-ipc = true
 
-border-size = 0
-;border-left-size = 0
-;border-right-size = 25
-;border-top-size = 0
-;border-bottom-size = 25
-border-color = #00000000
+border-size = 1
+border-color = ${colors.foreground}
 
 padding-left = 0
-padding-right = 5
+padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 0
@@ -110,12 +106,12 @@ override-redirect = true
 
 enable-ipc = true
 
-border-size = 0
+border-size = 1
 ;border-left-size = 0
 ;border-right-size = 25
 ;border-top-size = 0
 ;border-bottom-size = 25
-border-color = #00000000
+border-color = ${colors.foreground}
 
 padding-left = 0
 padding-right = 5
@@ -365,7 +361,7 @@ format-discharging-foreground = ${colors.foreground}
 format-discharging-background = ${colors.background}
 
 format-full-prefix = "  "
-format-full-prefix-foreground = #98971a
+format-full-prefix-foreground = ${colors.foreground}
 ;format-full-underline = #a3c725
 format-full-foreground = ${colors.foreground}
 format-full-background = ${colors.background}
@@ -376,7 +372,7 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-5 = 
-ramp-capacity-foreground = #cc241d
+ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -384,7 +380,7 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-5 = 
-animation-charging-foreground = #d65d0e
+animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 1000
 
 ################################################################################
@@ -484,8 +480,8 @@ interval = 5
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 date = "%Y-%m-%d%"
 date-alt = "%d-%m-%Y"
-time = "%I:%M %p"
-time-alt = %I:%M
+time = "  %I:%M %p"
+time-alt = "  %I:%M"
 format-prefix = ""
 format-prefix-foreground = #c1941a
 ;format-underline = #c1941a
@@ -530,14 +526,14 @@ format = <label-state>
 label-monitor = %name%
 
 label-active = %name%
-label-active-foreground = #ff79c6
-label-active-background = ${colors.background}
-label-active-underline= #ff79c6
+label-active-foreground = ${colors.background}
+label-active-background = ${colors.foreground}
+;label-active-underline= #ff79c6
 label-active-padding = 2
 
 label-occupied = %name%
 label-occupied-background = ${colors.background}
-label-occupied-foreground = #ff79c6
+label-occupied-foreground = ${colors.foreground}
 label-occupied-padding = 2
 
 label-urgent = %name%
@@ -548,7 +544,7 @@ label-urgent-padding = 2
 
 
 label-empty = %name%
-label-empty-foreground = ${colors.foreground}
+label-empty-foreground = #ffffff
 label-empty-padding = 2
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
