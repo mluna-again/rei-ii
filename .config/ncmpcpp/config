@@ -1,10 +1,16 @@
-# vim: filetype=conf
+startup_screen = "visualizer"
+visualizer_type = "spectrum"
+visualizer_look = "++"
+visualizer_spectrum_smooth_look = yes
+visualizer_spectrum_dft_size = 1
+
+execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% \n%album%' current)"
 
 ncmpcpp_directory = "~/.config/ncmpcpp"
 lyrics_directory = "~/.local/share/lyrics"
 mpd_music_dir = "~/Music"
 message_delay_time = "1"
-visualizer_type = "spectrum"
+
 song_list_format = {$4%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
 song_status_format = $b{{$8"%t"}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
 song_library_format = {%n - }{%t}|{%f}
@@ -14,12 +20,12 @@ current_item_prefix = $(cyan)$r$b
 current_item_suffix = $/r$(end)$/b
 current_item_inactive_column_prefix = $(magenta)$r
 current_item_inactive_column_suffix = $/r$(end)
+
 playlist_display_mode = columns
 browser_display_mode = columns
 progressbar_look = ->
 media_library_primary_tag = album_artist
 media_library_albums_split_by_date = no
-startup_screen = "media_library"
 display_volume_level = no
 ignore_leading_the = yes
 external_editor = nvim
