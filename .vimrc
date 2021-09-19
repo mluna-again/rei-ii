@@ -1,6 +1,7 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'metalelf0/base16-black-metal-scheme'
 Plug 'psliwka/vim-smoothie'
 Plug 'ap/vim-css-color'
 Plug 'elkowar/yuck.vim'
@@ -54,7 +55,7 @@ set background=dark
 set mouse=a
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimEnter *.sh set noexpandtab
-colorscheme dracula
+colorscheme base16-black-metal-marduk
 " transparency
 autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE
 " </Config>
@@ -121,35 +122,78 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 " <Lualine>
 lua << EOF
 local function getDate()
-  return os.date("%I:%M %p")
+return os.date("%I:%M %p")
 end
-local dracula = require('lualine.themes.dracula')
+local colors = {
+  black        = '#000000',
+  white        = '#999999',
+  red          = '#222222',
+  green        = '#c1c1c1',
+  blue         = '#aaaaaa',
+  yellow       = '#999999',
+  gray         = '#444444',
+  darkgray     = '#121212',
+  lightgray    = '#121212',
+  inactivegray = '#121212',
+  }
+local bw = {
+  normal = {
+    a = {bg = colors.gray, fg = colors.black, gui = 'bold'},
+    b = {bg = colors.lightgray, fg = colors.white},
+    c = {bg = colors.darkgray, fg = colors.gray}
+    },
+  insert = {
+    a = {bg = colors.blue, fg = colors.black, gui = 'bold'},
+    b = {bg = colors.lightgray, fg = colors.white},
+    c = {bg = colors.lightgray, fg = colors.white}
+    },
+  visual = {
+    a = {bg = colors.yellow, fg = colors.black, gui = 'bold'},
+    b = {bg = colors.lightgray, fg = colors.white},
+    c = {bg = colors.inactivegray, fg = colors.black}
+    },
+  replace = {
+    a = {bg = colors.red, fg = colors.black, gui = 'bold'},
+    b = {bg = colors.lightgray, fg = colors.white},
+    c = {bg = colors.black, fg = colors.white}
+    },
+  command = {
+    a = {bg = colors.green, fg = colors.black, gui = 'bold'},
+    b = {bg = colors.lightgray, fg = colors.white},
+    c = {bg = colors.inactivegray, fg = colors.black}
+    },
+  inactive = {
+    a = {bg = colors.darkgray, fg = colors.gray, gui = 'bold'},
+    b = {bg = colors.darkgray, fg = colors.gray},
+    c = {bg = colors.darkgray, fg = colors.gray}
+    }
+  }
 require('lualine').setup{
-  options = {
-    icons_enabled = true,
-    theme = dracula,
-    disabled_filetypes = {'Dashboard'},
-    section_separators = '',
-    component_separators = ''
+options = {
+  icons_enabled = true,
+  theme = bw,
+  disabled_filetypes = {'Dashboard'},
+  section_separators = '',
+  component_separators = ''
   },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = { getDate },
+sections = {
+  lualine_a = {'mode'},
+  lualine_b = {'branch'},
+  lualine_c = {'filename'},
+  lualine_x = {'encoding', 'fileformat', 'filetype'},
+  lualine_y = {'progress'},
+  lualine_z = { getDate },
   },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
+inactive_sections = {
+  lualine_a = {},
+  lualine_b = {},
+  lualine_c = {'filename'},
+  lualine_x = {'location'},
+  lualine_y = {},
+  lualine_z = {}
   },
-  tabline = {},
-  extensions = {}
+tabline = {},
+extensions = {}
 }
 EOF
 " </Lualine>
@@ -157,9 +201,9 @@ EOF
 " <Nvim-bufferline>
 lua << EOF
 require("bufferline").setup{
-  options = {
-    show_buffer_close_icons = false,
-    show_close_icon = false,
+options = {
+  show_buffer_close_icons = false,
+  show_close_icon = false,
   }
 }
 EOF
@@ -254,18 +298,18 @@ command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-ar
 " <Dashboard>
 let g:dashboard_default_executive = 'telescope'
 let s:header = [
-    \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
-    \'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
-    \'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ',
-    \'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
-    \'          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
-    \'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
-    \'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
-    \' ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
-    \' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ',
-    \'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
-    \'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
-    \]
+      \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
+      \'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
+      \'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ',
+      \'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
+      \'          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
+      \'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
+      \'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
+      \' ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
+      \' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ',
+      \'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
+      \'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
+      \]
 let g:dashboard_custom_header = s:header
 nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
@@ -285,11 +329,11 @@ let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ 'typescriptreact': 'jsxRegion,tsxRegion',
-    \ 'javascriptreact': 'jsxRegion',
-    \ }
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ 'typescriptreact': 'jsxRegion,tsxRegion',
+      \ 'javascriptreact': 'jsxRegion',
+      \ }
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 " </Closetag>

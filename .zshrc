@@ -258,4 +258,4 @@ autoload -Uz compinit
 compinit
 
 export PATH=$PATH:/$HOME/.emacs.d/bin
-alias neofetch="neofetch --disable cpu gpu icons theme wm uptime resolution --ascii ~/Documents/idk/x"
+alias neofetch="neofetch --disable cpu gpu icons theme wm uptime resolution --ascii ~/.local/ascii/ouroboros"
