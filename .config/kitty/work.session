@@ -1,0 +1,5 @@
+cd ~/Work
+launch tmux
+
+new_tab music
+launch ncmpcpp

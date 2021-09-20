@@ -173,7 +173,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. mod1Mask , xK_p ), spawn $ "pamac-manager")
   , ((controlMask .|. mod1Mask , xK_r ), spawn $ "rofi-theme-selector")
   , ((controlMask .|. mod1Mask , xK_s ), spawn $ "spotify")
-  , ((controlMask .|. mod1Mask , xK_t ), spawn $ "urxvt")
   , ((controlMask .|. mod1Mask , xK_u ), spawn $ "pavucontrol")
   , ((controlMask .|. mod1Mask , xK_v ), spawn $ "vivaldi-stable")
   , ((controlMask .|. mod1Mask , xK_w ), spawn $ "arcolinux-welcome-app")
@@ -275,7 +274,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. shiftMask , xK_l), sendMessage Expand)
 
   -- Push window back into tiling.
-  , ((controlMask .|. shiftMask , xK_t), withFocused $ windows . W.sink)
+  -- , ((controlMask .|. shiftMask , xK_t), withFocused $ windows . W.sink)
 
   -- Increment the number of windows in the master area.
   , ((controlMask .|. modMask, xK_Left), sendMessage (IncMasterN 1))
