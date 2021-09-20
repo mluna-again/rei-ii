@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=NCurses Music Player
+Exec=ncmpcpp
+Keywords=music,player,ncmcpp
+StartupNotify=false
+Terminal=true

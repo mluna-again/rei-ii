@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Work station
+Name=Workstation
 Exec=sh -c "kitty --session ~/.config/kitty/work.session"
-Keywords=work,kitty
+Keywords=work,kitty,workstation
 StartupNotify=false
