@@ -3,6 +3,8 @@ pam() {
   sudo pacman "$@" || (echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck.")
 }
 
+alias :q="exit"
+
 alias xr="xmonad --recompile && xmonad --restart"
 
 alias vv="v ~/.vimrc"
