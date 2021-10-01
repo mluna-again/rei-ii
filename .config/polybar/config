@@ -98,7 +98,7 @@ font-2 = "LXGW WenKai:size=10;2"
 
 modules-left = ewmh date
 modules-center = xwindow
-modules-right = pulseaudio-control battery wireless-network panel notifications
+modules-right = pulseaudio-control battery wireless-network panel
 
 ;tray-detached = true
 ;tray-offset-x = -5

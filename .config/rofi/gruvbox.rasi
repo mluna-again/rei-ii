@@ -1,6 +1,6 @@
 configuration {
 
-	font: "FontAwesome 14";
+	font: "FiraCode Retina Nerd Font Complete 14";
 	width: 30;
 	line-margin: 10;
 	lines: 6;

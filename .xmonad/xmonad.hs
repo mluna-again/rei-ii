@@ -184,7 +184,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_space), spawn $ "rofi -show drun")
   , ((mod1Mask, xK_space), spawn $ "rofi -show window")
   , ((mod1Mask .|. shiftMask, xK_space), spawn $ "rofi -show window")
-  , ((modMask, xK_x), spawn $ "$HOME/.local/scripts/lockscreen.sh" )
+  , ((modMask, xK_x), spawn $ "$HOME/.config/rofi/applets/menu/powermenu.sh" )
   , ((modMask, xK_BackSpace), spawn $ "rofi -show killall -modi \"killall:~/.local/rofi_scripts/process_killer.sh\"")
   , ((mod1Mask, xK_r), spawn $ "xmonad --restart" )
 
