@@ -1,5 +1,8 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
+Plug 'vim-test/vim-test'
+Plug 'voldikss/vim-floaterm'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'psliwka/vim-smoothie'
 Plug 'ap/vim-css-color'
@@ -82,6 +85,11 @@ nmap <silent> <C-p> :call ToggleBlur()<CR>
 nmap <silent> <C-x> :bufdo bd \| :Dashboard<CR>
 nmap <SPACE> <Nop>
 let g:mapleader="\<Space>"
+nmap <silent> <leader>r :TestNearest<CR>
+nmap <silent> <leader>R :TestFile<CR>
+nmap <silent> <leader>T :TestSuite<CR>
+let test#strategy = "floaterm"
+let test#php#phpunit#executable = 'php artisan test'
 " </Keybindings>
 
 " <Gruvbox>
@@ -307,3 +315,48 @@ let g:UltiSnipsJumpBackwardTrigger="<nop>"
 let g:indentLine_fileTypeExclude = ['dashboard', 'vimwiki', 'dockerfile', 'json']
 autocmd! TermOpen * IndentLinesDisable
 autocmd! FileType dashboard autocmd! BufEnter <buffer> normal gg
+
+
+" <Intelephense>
+if executable('intelephense')
+  augroup LspPHPIntelephense
+    au!
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'intelephense',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'intelephense --stdio']},
+        \ 'whitelist': ['php'],
+        \ 'initialization_options': {'storagePath': '/tmp/intelephense'},
+        \ 'workspace_config': {
+        \   'intelephense': {
+        \     'files': {
+        \       'maxSize': 1000000,
+        \       'associations': ['*.php', '*.phtml'],
+        \       'exclude': [],
+        \     },
+        \     'completion': {
+        \       'insertUseDeclaration': v:true,
+        \       'fullyQualifyGlobalConstantsAndFunctions': v:false,
+        \       'triggerParameterHints': v:true,
+        \       'maxItems': 100,
+        \     },
+        \     'format': {
+        \       'enable': v:true
+        \     },
+        \   },
+        \ }
+        \})
+  augroup END
+endif
+" </Intelephense>
+
+
+
+" <Floaterm>
+let g:floaterm_keymap_toggle = '<A-m>'
+let g:floaterm_title = ''
+let g:floaterm_position = 'top'
+let g:floaterm_borderchars = ''
+let g:floaterm_autoclose = 1
+" let g:floaterm_height = 0.4
+" </Floaterm>
+

@@ -7,6 +7,8 @@ alias :q="exit"
 
 alias xr="xmonad --recompile && xmonad --restart"
 
+alias repos="cd ~/Documents/repos"
+
 alias vv="v ~/.vimrc"
 alias vz="v ~/.zshrc"
 alias vm="v ~/.xmonad/xmonad.hs"
@@ -59,6 +61,10 @@ alias please="sudo"
 alias die="exit"
 alias cd..="cd .."
 alias v="nvim"
+
+# Laravel
+alias artisan="php artisan"
+alias artisanser="php artisan serve"
 
 # Python activate virtual env shortcut
 #alias activate="source bin/activate"
@@ -261,3 +267,6 @@ compinit
 
 export PATH=$PATH:/$HOME/.emacs.d/bin
 alias neofetch="neofetch --disable cpu gpu icons theme wm uptime resolution --ascii ~/Documents/idk/x"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
