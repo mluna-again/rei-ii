@@ -11,15 +11,14 @@ configuration {
   display-drun:   "︁";
   display-window: "";
   display-combi:  "";
-  show-icons:     true;
 }
 
 * {
 	gruvbox0: #928374;
 	gruvbox6: #928374;
-	gruvbox7: #1d2021;
-	gruvbox9: #282828;
-	gruvbox10: #282828;
+	gruvbox7: #6272a4;
+	gruvbox9: #282a36;
+	gruvbox10: #282a36;
 
   foreground:  @gruvbox9;
   backlight:   #ccffeedd;
@@ -27,16 +26,15 @@ configuration {
   
   highlight:     underline bold #eceff4;
 
-  transparent: #282828FF;
+  transparent: #282a36FF;
 }
 
 window {
-    location: center;
-    anchor:   center;
+    location: 2;
     transparency: "screenshot";
-    padding: 10px;
+    padding: 0 0 15px 0;
     border:  0px;
-    border-radius: 6px;
+    margin: 10px 0 0 0;
 
     background-color: @transparent;
     spacing: 0;
@@ -60,11 +58,9 @@ message {
 inputbar {
     color: @gruvbox6;
     padding: 11px;
-    background-color: #1d2021;
+    background-color: #bd93f9;
 
-    border: 1px;
-    border-radius:  6px;
-    border-color: @gruvbox10;
+    border-color: #bd93f9;
 }
 
 entry, prompt, case-indicator {
@@ -72,40 +68,39 @@ entry, prompt, case-indicator {
     text-color:inherit;
 }
 
-prompt {
+prompt, entry {
     margin: 0px 0.3em 0em 0em ;
+    text-color: #f8f8f2;
+    
 }
 
 listview {
-    padding: 8px;
-    border-radius: 0px 0px 6px 6px;
+    padding: 10px 0 0 0;
     border-color: @gruvbox10;
     border: 0px 1px 1px 1px;
-    background-color: #282828FF;
+    background-color: #282a36FF;
     dynamic: true;
     fixed-height: false;
-    lines: 10;
+    lines: 5;
     margin: 0;
 }
 
 element {
     padding: 5px;
     vertical-align: -7px;
-    border-radius: 4px;
     background-color: transparent;
     color: @foreground;
     text-color: #bdae93;
 }
 
 element selected.normal {
-	background-color: @gruvbox7;
+	background-color: #bd93f9;
 	text-color: #fbf1c7;
 }
 
 element-text, element-icon {
     background-color: inherit;
     text-color:       inherit;
-    margin: 0px 9px 0px 0px;
     height: 14px;
     width: 14px;
 }
@@ -116,7 +111,6 @@ button {
     horizontal-align: 0.5;
 
     border: 2px 0px 2px 2px;
-    border-radius: 4px 0px 0px 4px;
     border-color: @foreground;
 }
 
