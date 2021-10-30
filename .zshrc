@@ -1,3 +1,5 @@
+alias brails="bin/rails"
+alias sshmac="ssh -i ~/.ssh/mac hopper@pruebas.miveloz.com"
 # alias pam="sudo pacman"
 pam() {
   sudo pacman "$@" || (echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck.")
@@ -43,6 +45,10 @@ alias npms="npm start"
 alias npmt="npm run test"
 alias npmb="npm run build"
 alias npmi="npm install"
+alias yarns="yarn start"
+alias yarnb="yarn build"
+alias yarni="yarn install"
+alias yarna="yarn add"
 alias k="kubectl"
 alias drun="deno run --unstable --watch"
 alias python="python3"
@@ -257,4 +263,12 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 autoload -Uz compinit
 compinit
 
-export PATH=$PATH:/$HOME/.emacs.d/bin
+export PATH=$PATH:/$HOME/.emacs.d/bin:/opt/flutter/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.gem/ruby/3.0.0/bin"
