@@ -16,10 +16,10 @@ memory=$($HOME/.config/rofi/bin/usedram)
 
 # Options
 shutdown="⏻︁"
-reboot="🗘︁"
-lock="🔒︁"
-suspend=""
-logout=""
+reboot=""
+lock=""
+suspend=""
+logout=""
 
 # Confirmation
 confirm_exit() {
@@ -66,7 +66,7 @@ case $chosen in
 		# if [[ -f /usr/bin/i3lock ]]; then
 		# 	i3lock
 		if [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
+			$HOME/.local/scripts/lockscreen.sh
 		fi
         ;;
     $suspend)

@@ -1,0 +1,27 @@
+add_newline = false
+
+format = """$username$hostname$directory$git_branch$git_commit$git_state$git_metrics$git_status$docker_context$deno$dotnet$golang$nodejs$memory_usage$jobs$battery$time$status$shell
+$character"""
+
+[character]
+success_symbol = "[Δ](bold purple)"
+error_symbol = "[Δ](bold red)"
+vicmd_symbol = "[Δ](bold green)"
+
+[[battery.display]]
+threshold = 100
+
+[memory_usage]
+disabled = false
+threshold = 1
+format = "[${ram}]($style) "
+
+[time]
+disabled = false
+
+[username]
+show_always = false
+
+[hostname]
+disabled = false
+ssh_only = true

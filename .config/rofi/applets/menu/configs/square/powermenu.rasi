@@ -1,5 +1,4 @@
 configuration {
-	font:                      		"Comfortaa 14";
     disable-history:                false;
     fullscreen:                     false;
 	hide-scrollbar: 				true;
@@ -79,7 +78,7 @@ element {
 }
 
 element-text {
-	font:							"feather 32";
+	font:							"FontAwesome 32";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;

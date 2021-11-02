@@ -1,3 +1,5 @@
+alias figlet="figlet -f ~/.local/share/fonts/figlet-fonts/smmono12.tlf"
+alias neofetch="neofetch --ascii ~/.local/ascii/mewo"
 alias brails="bin/rails"
 alias sshmac="ssh -i ~/.ssh/mac hopper@pruebas.miveloz.com"
 # alias pam="sudo pacman"
@@ -225,7 +227,7 @@ export PYTHONPATH=/usr/share/python3
 # export WORKON_HOME=~/Envs
 # mkdir -p $WORKON_HOME
 # source ~/.local/bin/virtualenvwrapper.sh
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 alias rice='curl -L rum.sh/ricebowl'
 alias rice='curl -L git.io/rice'
 
@@ -272,3 +274,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.gem/ruby/3.0.0/bin"
+alias ls="exa --color always --icons"

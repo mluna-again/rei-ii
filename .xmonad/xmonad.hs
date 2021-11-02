@@ -45,6 +45,7 @@ import qualified DBus.Client as D
 myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart.sh"
     spawn "unclutter --timeout 2 &"
+    spawn "greenclip daemon"
     setWMName "LG3D"
 
 -- colours
@@ -181,11 +182,16 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- ALT + ... KEYS
 
+  , ((modMask, xK_plus), spawn $ "light -A 10")
+  , ((modMask, xK_minus), spawn $ "light -U 10")
+  , ((modMask, xK_period), spawn $ "rofimoji")
+  , ((modMask, xK_c), spawn $ "rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'")
   , ((modMask, xK_space), spawn $ "rofi -show drun")
   , ((mod1Mask, xK_space), spawn $ "rofi -show window")
   , ((mod1Mask .|. shiftMask, xK_space), spawn $ "rofi -show window")
-  , ((modMask, xK_x), spawn $ "$HOME/.local/scripts/lockscreen.sh" )
+  , ((modMask, xK_x), spawn $ "$HOME/.config/rofi/applets/menu/powermenu.sh" )
   , ((modMask, xK_BackSpace), spawn $ "rofi -show killall -modi \"killall:~/.local/rofi_scripts/process_killer.sh\"")
+  , ((modMask, xK_n), spawn $ "rofi -show net -modi \"net:~/.local/scripts/network/get_list.sh\"")
   , ((mod1Mask, xK_r), spawn $ "xmonad --restart" )
 
   --CONTROL + SHIFT KEYS
