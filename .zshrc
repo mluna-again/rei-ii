@@ -1,3 +1,4 @@
+alias mari_says="ruby ~/Repos/mari/mari.rb"
 alias figlet="figlet -f ~/.local/share/fonts/figlet-fonts/smmono12.tlf"
 alias neofetch="neofetch --ascii ~/.local/ascii/mewo"
 alias brails="bin/rails"
@@ -144,8 +145,8 @@ ZSH_THEME="rei"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git nvm)
-plugins=(nvm vi-mode)
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+plugins=(vi-mode)
+# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source $ZSH/oh-my-zsh.sh
 
