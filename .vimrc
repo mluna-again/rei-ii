@@ -1,5 +1,7 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
+Plug 'fxn/vim-monochrome'
+Plug 'dikiaap/minimalist'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-test/vim-test'
@@ -59,7 +61,9 @@ set background=dark
 set mouse=a
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimEnter *.sh set noexpandtab
+set t_Co=256
 colorscheme gruvbox
+syntax on
 " transparency
 autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE
 " </Config>
