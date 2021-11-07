@@ -1,3 +1,7 @@
+function r() {
+  cd ~/Repos
+  cd $1
+}
 alias mari_says="ruby ~/Repos/mari/mari.rb"
 alias figlet="figlet -f ~/.local/share/fonts/figlet-fonts/smmono12.tlf"
 alias neofetch="neofetch --ascii ~/.local/ascii/mewo"
@@ -5,7 +9,7 @@ alias brails="bin/rails"
 alias sshtest="ssh -i ~/.ssh/mac hopper@pruebas.miveloz.com"
 alias sshprod="ssh hopper@api.miveloz.com"
 # alias pam="sudo pacman"
-pam() {
+pac() {
   sudo pacman "$@" || (echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck.")
 }
 

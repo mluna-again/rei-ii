@@ -31,7 +31,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'akinsho/nvim-bufferline.lua'
 Plug 'hoob3rt/lualine.nvim', {'commit': 'dc2c711'}
-Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'yuezk/vim-js'
@@ -189,8 +188,9 @@ set termguicolors
 lua << EOF
 require("nvim-tree").setup{
 view = {
-  side = "right"
-  }
+  side = "left",
+  width = "20%"
+  },
 }
 EOF
 " highlight NvimTreeFolderIcon guibg=blue
@@ -393,9 +393,11 @@ endif
 let g:floaterm_keymap_toggle = '<A-m>'
 let g:floaterm_title = ''
 let g:floaterm_position = 'top'
-let g:floaterm_borderchars = ''
 let g:floaterm_autoclose = 1
 " let g:floaterm_height = 0.4
+let g:floaterm_borderchars = '─│─│┌┐┘└'
+autocmd User FloatermOpen hi FloatermBorder guibg=NONE guifg=NONE
 " </Floaterm>
 
 command Ruby !ruby %
+command Env :e .env
