@@ -5,7 +5,7 @@ function r() {
 alias mari_says="ruby ~/Repos/mari/mari.rb"
 alias figlet="figlet -f ~/.local/share/fonts/figlet-fonts/smmono12.tlf"
 alias neofetch="neofetch --ascii ~/.local/ascii/mewo"
-alias brails="bin/rails"
+alias r="bin/rails"
 alias sshtest="ssh -i ~/.ssh/mac hopper@pruebas.miveloz.com"
 alias sshprod="ssh hopper@api.miveloz.com"
 # alias pam="sudo pacman"
@@ -278,6 +278,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:$HOME/.gem/ruby/3.0.0/bin"
+source ~/.rvm/scripts/rvm
 alias ls="exa --color always --icons"
