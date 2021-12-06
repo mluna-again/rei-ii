@@ -1,5 +1,8 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
+Plug 'rust-lang/rust.vim'
+Plug 'andweeb/presence.nvim'
+Plug 'junegunn/goyo.vim'
 Plug 'fxn/vim-monochrome'
 Plug 'dikiaap/minimalist'
 Plug 'tpope/vim-rails'
@@ -26,11 +29,10 @@ Plug 'glepnir/dashboard-nvim'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf.vim' " you need fzf installed
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'dense-analysis/ale'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'akinsho/nvim-bufferline.lua'
-Plug 'hoob3rt/lualine.nvim', {'commit': 'dc2c711'}
+Plug 'hoob3rt/lualine.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'yuezk/vim-js'
@@ -137,19 +139,20 @@ local function getDate()
   return os.date("%I:%M %p")
 end
 local gruvbox = require('lualine.themes.gruvbox')
+gruvbox.command.a.bg = '#fb4934'
 require('lualine').setup{
   options = {
     icons_enabled = true,
     theme = gruvbox,
     disabled_filetypes = {'Dashboard'},
-    section_separators = '',
-    component_separators = ''
+    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = ''},
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {{ 'filename', full_path = true }},
+    lualine_x = {'encoding', 'location', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = { getDate },
   },

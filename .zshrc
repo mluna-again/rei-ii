@@ -1,13 +1,35 @@
+function b() {
+  sudo systemctl restart bluetooth
+}
+
 function r() {
   cd ~/Repos
   cd $1
 }
+
 alias mari_says="ruby ~/Repos/mari/mari.rb"
 alias figlet="figlet -f ~/.local/share/fonts/figlet-fonts/smmono12.tlf"
-alias neofetch="neofetch --ascii ~/.local/ascii/mewo"
+# alias neofetch="neofetch --ascii ~/.local/ascii/mewo"
 alias r="bin/rails"
-alias sshtest="ssh -i ~/.ssh/mac hopper@pruebas.miveloz.com"
-alias sshprod="ssh hopper@api.miveloz.com"
+alias ado="node ace"
+alias p="psql -U postgres"
+
+ssh() {
+  case "$1" in
+    test)
+      /usr/bin/ssh -i  ~/.ssh/mac hopper@pruebas.miveloz.com
+      ;;
+    prod)
+      /usr/bin/ssh hopper@api.miveloz.com
+      ;;
+    lain)
+      /usr/bin/ssh lain@lost-navi.xyz
+      ;;
+    *)
+      /usr/bin/ssh $@
+      ;;
+  esac
+}
 # alias pam="sudo pacman"
 pac() {
   sudo pacman "$@" || (echo "Trying with yay..." && yay "$@" || echo "Nope. Good luck.")
@@ -31,15 +53,19 @@ alias dotsd="dots diff"
 
 alias ls="ls --color"
 alias ports="sudo lsof -i -P -n | grep -i listen"
+
 alias gd="git diff"
 alias gl="git log"
 alias gR="git reset --hard"
 alias gCC="git clean -fd"
+alias gC="git checkout"
+alias gP="git pull"
 alias gp="git push"
 alias gs="git status"
 alias ga="git add ."
 alias gA="git add "
 alias gc="git commit -m"
+
 alias t="tmux"
 alias n="nordvpn"
 alias ns="nordvpn status"
@@ -190,8 +216,8 @@ fi
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+export FZF_DEFAULT_COMMAND='ag -g ""'
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
