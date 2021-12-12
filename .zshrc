@@ -43,6 +43,7 @@ alias xr="xmonad --recompile && xmonad --restart"
 
 alias vv="v ~/.vimrc"
 alias vz="v ~/.zshrc"
+alias vt="v ~/.tmux.conf"
 alias vm="v ~/.xmonad/xmonad.hs"
 
 alias dots='yadm'
