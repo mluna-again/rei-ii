@@ -14,6 +14,10 @@ alias r="bin/rails"
 alias ado="node ace"
 alias p="psql -U postgres"
 
+docs() {
+  apidoc -i $1 -o docs
+}
+
 ssh() {
   case "$1" in
     test)
