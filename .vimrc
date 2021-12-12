@@ -196,7 +196,7 @@ auto_close = true,
 update_cwd = true,
 view = {
   side = "left",
-  width = "30%"
+  width = "20%"
   },
 }
 EOF
