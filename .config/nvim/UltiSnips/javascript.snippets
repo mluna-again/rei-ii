@@ -1,0 +1,53 @@
+global !p
+# Capitalize the first letter without affecting the rest of the letters
+def capitalize_first(word):
+	if(word):
+		word = word[0].upper() + word[1:]
+	return word
+endglobal
+
+snippet impR "import React"
+import React from 'react'
+endsnippet
+
+snippet imp "basic import" b
+import $1 from '$2'
+endsnippet
+
+snippet impn "named import" b
+import { $1 } from '$2'
+endsnippet
+
+snippet excon "export const"
+export const $1 = $2
+endsnippet
+
+snippet exd "export default"
+export default $1
+endsnippet
+
+snippet useS "React's useState" b
+const [${1}, set`!p snip.rv=capitalize_first(t[1])`] = useState(${3:"${4}"})
+endsnippet
+
+snippet useE "React's useEffect" b
+useEffect(() => {
+	$2
+}, [$1])
+endsnippet
+
+snippet useR "React's useRef" b
+const ${1:ref} = useRef(${2:null})
+endsnippet
+
+snippet forI "for (let i = 0...)" b
+for (let i = 0; i < $1; i++) {
+	$2
+}
+endsnippet
+
+snippet forA "for (const item of array)" b
+for (const item of $1) {
+	$2
+}
+endsnippet
