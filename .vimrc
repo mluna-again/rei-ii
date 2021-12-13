@@ -1,6 +1,7 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
 " Plug 'wfxr/minimap.vim' " install code-minimap (yay -S code-minimap)
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'glepnir/oceanic-material'
 Plug 'rust-lang/rust.vim'
 Plug 'andweeb/presence.nvim'
@@ -80,6 +81,7 @@ nmap <silent> tt  :Bclose<CR>
 nmap <silent> dh  :noh<CR>
 nmap <silent> '' ``
 nmap <silent> ! :ls<CR>
+tnoremap <Esc> <C-\><C-n>
 nmap <silent> <A-k> :wincmd k<CR>
 nmap <silent> <A-j> :wincmd j<CR>
 nmap <silent> <A-h> :wincmd h<CR>
@@ -419,6 +421,10 @@ let g:minimap_auto_start_win_enter = 1
 let g:minimap_block_filetypes = ['fugitive', 'nerdtree', 'tagbar', 'fzf', 'dashboard', 'NvimTree']
 let g:minimap_block_buftypes = ['nofile', 'nowrite', 'quickfix', 'terminal', 'prompt', 'dashboard', 'NvimTree']
 " </Minimap>
+
+" <Markdown>
+let g:mkdp_browser = 'firefox'
+" </Markdown>
 
 command Ruby !ruby %
 command Env :e .env
