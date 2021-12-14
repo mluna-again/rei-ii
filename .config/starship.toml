@@ -28,3 +28,4 @@ ssh_only = true
 
 [ruby]
 detect_variables = ["RENV_VERSION"]
+symbol = " "
