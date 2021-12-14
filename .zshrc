@@ -59,6 +59,7 @@ alias dotsd="dots diff"
 alias ls="ls --color"
 alias ports="sudo lsof -i -P -n | grep -i listen"
 
+# Git
 alias gd="git diff"
 alias gl="git log"
 alias gR="git reset --hard"
@@ -70,6 +71,8 @@ alias gs="git status"
 alias ga="git add ."
 alias gA="git add "
 alias gc="git commit -m"
+alias gm="git merge"
+alias gmc="git --no-pager diff --name-only --diff-filter=U"
 
 alias t="tmux"
 alias n="nordvpn"

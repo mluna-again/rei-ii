@@ -48,6 +48,7 @@ call plug#end()
 " </Plugins>
 
 " <Config>
+set spelllang+=es
 set encoding=UTF-8
 set number
 set relativenumber
@@ -73,6 +74,7 @@ autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE
 " </Config>
 
 " <Keybindings>
+nmap <silent> TT :only<CR>
 imap <silent> jj <ESC>
 nmap <silent> ss :w<CR>
 " nmap <silent> gt  :bn<CR>
@@ -426,5 +428,13 @@ let g:minimap_block_buftypes = ['nofile', 'nowrite', 'quickfix', 'terminal', 'pr
 let g:mkdp_browser = 'firefox'
 " </Markdown>
 
+
+" <Fugitive>
+nmap <silent> <leader>gd :Gvdiffsplit!<CR>
+command Gtomerge :!git --no-pager diff --name-only --diff-filter=U
+" </Fugitive>
+
+" <Helpers>
 command Ruby !ruby %
 command Env :e .env
+" </Helpers>
