@@ -74,6 +74,10 @@ autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE
 " </Config>
 
 " <Keybindings>
+nmap <silent> <C-Left> :vertical resize -2<CR>
+nmap <silent> <C-Right> :vertical resize +2<CR>
+nmap <silent> <C-Up> :resize +2<CR>
+nmap <silent> <C-Down> :resize -2<CR>
 nmap <silent> TT :only<CR>
 imap <silent> jj <ESC>
 nmap <silent> ss :w<CR>
