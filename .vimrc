@@ -1,6 +1,7 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
 " Plug 'wfxr/minimap.vim' " install code-minimap (yay -S code-minimap)
+Plug 'tpope/vim-endwise'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'glepnir/oceanic-material'
 Plug 'rust-lang/rust.vim'

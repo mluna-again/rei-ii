@@ -8,6 +8,8 @@ bindkey -M viins 'jj' vi-cmd-mode
 export VI_MODE_SET_CURSOR=true
 export MODE_INDICATOR="%F{yellow}[NORMAL]%f"
 export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 autoload -Uz compinit
