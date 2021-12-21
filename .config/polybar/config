@@ -55,11 +55,11 @@ volume-max = #bf616a
 [bar/mainbar-bspwm]
 monitor = ${env:MONITOR}
 ;monitor-fallback = HDMI1
-width = 100%
+width = 99%
 height = 30
-;offset-x = 1%
-offset-y = 6
-radius = 0
+offset-x = 0.5%
+offset-y = 0
+radius-bottom = 10
 fixed-center = true
 bottom = false
 ;separator = |
@@ -70,7 +70,7 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-;wm-restack = xmonad
+wm-restack = i3
 override-redirect = true
 
 ; Enable support for inter-process messaging
@@ -98,7 +98,7 @@ font-2 = "LXGW WenKai:size=10;2"
 
 modules-left = ewmh date
 modules-center = xwindow
-modules-right = pulseaudio-control battery wireless-network panel
+modules-right = pulseaudio-control battery wireless-network
 
 ;tray-detached = true
 ;tray-offset-x = -5

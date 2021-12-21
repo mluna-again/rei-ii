@@ -1,6 +1,5 @@
 configuration {
   drun-display-format: "{name}";
-  theme: "gruvbox";
 /*	modi: "window,run,ssh";*/
 /*	font: "mono 12";*/
 /*	location: 0;*/
@@ -147,3 +146,5 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+@theme "gruvbox"

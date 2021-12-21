@@ -1,6 +1,7 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
 " Plug 'wfxr/minimap.vim' " install code-minimap (yay -S code-minimap)
+Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-endwise'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'glepnir/oceanic-material'
@@ -26,7 +27,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-obsession'
 Plug 'Yggdroot/indentLine'
-Plug 'prettier/vim-prettier'
+" Plug 'prettier/vim-prettier'
 Plug 'neoclide/coc-css'
 Plug 'mattn/emmet-vim'
 Plug 'glepnir/dashboard-nvim'
@@ -411,9 +412,9 @@ endif
 
 " <Floaterm>
 let g:floaterm_keymap_toggle = '<A-m>'
-let g:floaterm_wintype = 'split'
+" let g:floaterm_wintype = 'split'
 let g:floaterm_title = ''
-let g:floaterm_position = 'bottom'
+let g:floaterm_position = 'top'
 let g:floaterm_autoclose = 2
 let g:floaterm_height = 0.4
 let g:floaterm_borderchars = '─│─│┌┐┘└'
@@ -443,3 +444,7 @@ command Gtomerge :!git --no-pager diff --name-only --diff-filter=U
 command Ruby !ruby %
 command Env :e .env
 " </Helpers>
+
+
+autocmd BufWritePost *.rb,*.erb,*.js,*.jsx,*.ts,*.tsx,*.py Neoformat
+let g:neoformat_only_msg_on_error = 1

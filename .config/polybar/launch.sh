@@ -21,7 +21,7 @@ case $desktop in
     i3|/usr/share/xsessions/i3)
     if type "xrandr" > /dev/null; then
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+        MONITOR=$m polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
       done
     else
     polybar --reload mainbar-i3 -c ~/.config/polybar/config &

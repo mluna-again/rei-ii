@@ -61,3 +61,13 @@ endsnippet
 snippet log "console.log" b
 console.log($1)
 endsnippet
+
+snippet comp "React functional component" b
+import React from 'react'
+
+const $1 = ($2) => {
+	$3
+}
+
+export default $1
+endsnippet
