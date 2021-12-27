@@ -442,6 +442,10 @@ command Gtomerge :!git --no-pager diff --name-only --diff-filter=U
 
 " <Helpers>
 command Ruby !ruby %
+command Lisp !sbcl --script %
+command Clojure !clj -M %
+command Js !node %
+command Py !python %
 command Env :e .env
 " </Helpers>
 
