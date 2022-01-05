@@ -103,6 +103,14 @@ alias gmc="git --no-pager diff --name-only --diff-filter=U"
 # </Aliases>
 
 # <Function>
+3000() {
+  [[ -n "$1" && ! "$1" =~ / ]] && http "$1" http://localhost:3000/$2 ${@:3} && return
+  http http://localhost:3000$1 ${@:2}
+}
+
+kill_containers() {
+  docker container rm -f $(docker container ls -qa)
+}
 b() {
   sudo systemctl restart bluetooth
 }

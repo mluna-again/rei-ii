@@ -83,6 +83,7 @@ nmap <silent> <C-Down> :resize -2<CR>
 nmap <silent> TT :only<CR>
 imap <silent> jj <ESC>
 nmap <silent> ss :w<CR>
+nmap <silent> SS :noautocmd w<CR>
 " nmap <silent> gt  :bn<CR>
 " nmap <silent> gr  :bp<CR>
 nmap <silent> tt  :Bclose<CR>
@@ -416,7 +417,8 @@ let g:floaterm_keymap_toggle = '<A-m>'
 let g:floaterm_title = ''
 let g:floaterm_position = 'top'
 let g:floaterm_autoclose = 2
-let g:floaterm_height = 0.4
+let g:floaterm_height = 0.8
+let g:floaterm_width = 0.8
 let g:floaterm_borderchars = '─│─│┌┐┘└'
 autocmd User FloatermOpen hi FloatermBorder guibg=NONE guifg=NONE
 autocmd TermOpen * setlocal nonumber norelativenumber
