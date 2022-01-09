@@ -224,6 +224,19 @@ let g:nvim_tree_side = 'right'
 
 
 " " <Funcs>
+let s:formatter_on = 1
+function! ToggleFormatter()
+  if s:formatter_on == 1
+    nmap <silent> ss :noautocmd w<CR>
+    nmap <silent> SS :w<CR>
+    let s:formatter_on = 0
+  else
+    nmap <silent> SS :noautocmd w<CR>
+    nmap <silent> ss :w<CR>
+    let s:formatter_on = 1
+  endif
+endfunction
+
 let s:blur = 1
 function! ToggleBlur()
   if s:blur == 1
@@ -446,11 +459,15 @@ command Gtomerge :!git --no-pager diff --name-only --diff-filter=U
 command Ruby !ruby %
 command Lisp !sbcl --script %
 command Clojure !clj -M %
-command Js !node %
-command Py !python %
+command Node !node %
+command Python !python %
 command Env :e .env
+command T :call ToggleFormatter()
 " </Helpers>
 
 
 autocmd BufWritePost *.rb,*.erb,*.js,*.jsx,*.ts,*.tsx,*.py Neoformat
 let g:neoformat_only_msg_on_error = 1
+
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
