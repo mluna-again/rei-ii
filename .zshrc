@@ -103,6 +103,10 @@ alias gmc="git --no-pager diff --name-only --diff-filter=U"
 # </Aliases>
 
 # <Function>
+db_postgres() {
+  docker container run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=password -d -e POSTGRES_DB=$1 postgres
+}
+
 3000() {
   [[ -n "$1" && ! "$1" =~ / ]] && http "$1" http://localhost:3000/$2 ${@:3} && return
   http http://localhost:3000$1 ${@:2}
