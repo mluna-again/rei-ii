@@ -83,6 +83,7 @@ nmap <silent> <C-Left> :vertical resize -2<CR>
 nmap <silent> <C-Right> :vertical resize +2<CR>
 nmap <silent> <C-Up> :resize +2<CR>
 nmap <silent> <C-Down> :resize -2<CR>
+nmap <silent> Y v$hy
 nmap <silent> TT :only<CR>
 imap <silent> jj <ESC>
 nmap <silent> ss :w<CR>
@@ -478,7 +479,8 @@ autocmd! BufEnter *.ex,*.exs nmap <silent> <C-p> :Elixir<CR>
 " </Helpers>
 
 
-autocmd BufWritePost *.rb,*.erb,*.js,*.jsx,*.ts,*.tsx,*.py Neoformat
+autocmd! BufWritePost *.rb,*.erb,*.js,*.jsx,*.ts,*.tsx,*.py,*.ex,*.exs Neoformat
+
 let g:neoformat_only_msg_on_error = 1
 
 let g:rubycomplete_classes_in_global = 1
