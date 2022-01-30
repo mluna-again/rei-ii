@@ -21,7 +21,7 @@ case $desktop in
     i3|/usr/share/xsessions/i3)
     if type "xrandr" > /dev/null; then
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
+        MONITOR=$m polybar --reload center -c ~/.config/polybar/config &
       done
     else
     polybar --reload mainbar-i3 -c ~/.config/polybar/config &
@@ -94,10 +94,14 @@ case $desktop in
     xmonad|/usr/share/xsessions/xmonad)
     if [ $count = 1 ]; then
       m=$(xrandr --query | grep " connected" | cut -d" " -f1)
-      MONITOR=$m polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
+      MONITOR=$m polybar --reload center -c ~/.config/polybar/config &
+      MONITOR=$m polybar --reload right -c ~/.config/polybar/config &
+      MONITOR=$m polybar --reload left -c ~/.config/polybar/config &
     else
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
+        MONITOR=$m polybar --reload center -c ~/.config/polybar/config &
+      MONITOR=$m polybar --reload right -c ~/.config/polybar/config &
+      MONITOR=$m polybar --reload left -c ~/.config/polybar/config &
       done
     fi
     # second polybar at bottom

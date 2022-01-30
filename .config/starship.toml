@@ -1,6 +1,6 @@
 add_newline = false
 
-format = """$username$hostname$directory$git_branch$git_commit$git_state$git_metrics$git_status$docker_context$ruby$deno$dotnet$golang$nodejs$memory_usage$jobs$battery$time$status$shell
+format = """$username$hostname$directory$git_branch$git_commit$git_state$git_metrics$git_status$docker_context$ruby${custom.crystal}${custom.nim}${custom.phoenix}${custom.elixir}$python$deno$dotnet$golang$nodejs$memory_usage$jobs$battery$time$status$shell
 $character"""
 
 [character]
@@ -29,3 +29,29 @@ ssh_only = true
 [ruby]
 detect_variables = ["RENV_VERSION"]
 symbol = " "
+
+[custom.elixir]
+extensions = ["ex", "exs"]
+symbol = ""
+format = "via [${symbol} v$output ](purple bold)"
+command = "elixir -v | tail -1 | awk '{print $2}'"
+when = "elixir" # i *think* this makes the prompt a little bit faster
+
+[custom.phoenix]
+# this is A LOT faster than `mix phx -v`
+command = "grep phoenix mix.exs | head -1 | grep -o '\".*\"' | awk '{print substr($2, 1, length($2)-1)}'"
+symbol = ""
+format = "via [${symbol} v$output ](yellow bold)"
+when = "grep phoenix mix.exs"
+
+[custom.nim]
+command = "nim -v | head -1 | awk '{print $4}'"
+format = "via [${symbol} v$output ](yellow bold)"
+extensions = ["nim"]
+symbol = "👑"
+
+[custom.crystal]
+symbol = ""
+format = "via [${symbol} v$output ](white bold)"
+extensions = ["cr"]
+command = "crystal -v | head -1 | awk '{print $2}'"

@@ -1,0 +1,19 @@
+
+xmonad.hs:151:35: error:
+    • Couldn't match type: [((KeyMask, KeySym), X ())]
+                     with: X ()
+      Expected: Window -> X ()
+        Actual: Window -> [((KeyMask, KeySym), X ())]
+    • In the first argument of ‘withFocused’, namely ‘toggleFloat’
+      In the expression: withFocused toggleFloat
+      In the expression: ((modMask, xK_d), withFocused toggleFloat)
+    |
+151 |   , ((modMask, xK_d), withFocused toggleFloat)
+    |                                   ^^^^^^^^^^^
+
+xmonad.hs:310:39: error:
+    • Variable not in scope: conf :: XConfig l1
+    • Perhaps you meant ‘B.cons’ (imported from Data.ByteString)
+    |
+310 |    | (i, k) <- zip (XMonad.workspaces conf) [xK_1,xK_2,xK_3,xK_4,xK_5,xK_6,xK_7,xK_8,xK_9,xK_0]
+    |                                       ^^^^

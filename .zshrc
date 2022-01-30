@@ -22,6 +22,7 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 # <Aliases>
 # alias neofetch="neofetch --ascii ~/.local/ascii/mewo"
 # utils
+alias :q="exit"
 alias ls="exa --color always --icons"
 alias rice='curl -L rum.sh/ricebowl'
 alias rice='curl -L git.io/rice'
@@ -29,7 +30,6 @@ alias figlet="figlet -f ~/.local/share/fonts/figlet-fonts/smmono12.tlf"
 alias cat="bat"
 alias p="psql -U postgres"
 alias xr="xmonad --recompile && xmonad --restart"
-alias ls="ls --color"
 alias ports="sudo lsof -i -P -n | grep -i listen"
 alias t="tmux"
 alias n="nordvpn"
@@ -103,6 +103,10 @@ alias gmc="git --no-pager diff --name-only --diff-filter=U"
 # </Aliases>
 
 # <Function>
+f() {
+  eval $@ | fzf
+}
+
 db_postgres() {
   docker container run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=password -d -e POSTGRES_DB=$1 postgres
 }

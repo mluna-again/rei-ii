@@ -11,7 +11,7 @@ exec --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/Yz3LYbQ.png
 
 for_window [class="^.*"] border pixel 0
 
-gaps top 30
+gaps top 40
 gaps inner 10
 
 set $mod Mod4

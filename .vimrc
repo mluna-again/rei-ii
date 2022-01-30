@@ -1,6 +1,8 @@
 " <Plugins>
 call plug#begin('~/.vim/plugged')
 " Plug 'wfxr/minimap.vim' " install code-minimap (yay -S code-minimap)
+Plug 'zah/nim.vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'elixir-editors/vim-elixir'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-endwise'
@@ -102,7 +104,6 @@ map  <silent> ñ <Plug>Commentary
 nmap <silent> { <C-b>
 nmap <silent> } <C-d>
 nmap <silent> <C-f> :call CocAction('jumpDefinition', 'drop')<CR>
-" nmap <silent> <C-p> :call ToggleBlur()<CR>
 nmap <silent> <C-x> :bufdo bd \| :Dashboard<CR>
 nmap <SPACE> <Nop>
 let g:mapleader="\<Space>"
@@ -462,9 +463,18 @@ command Lisp !sbcl --script %
 command Clojure !clj -M %
 command Node !node %
 command Python !python %
+command Nim !nim c -r %
 command Elixir !elixir %
 command Env :e .env
 command T :call ToggleFormatter()
+command C normal ggVG"+y
+
+autocmd! BufEnter *.rb nmap <silent> <C-p> :Ruby<CR>
+autocmd! BufEnter *.lisp,*.cl nmap <silent> <C-p> :Lisp<CR>
+autocmd! BufEnter *.cls nmap <silent> <C-p> :Clojure<CR>
+autocmd! BufEnter *.js nmap <silent> <C-p> :Node<CR>
+autocmd! BufEnter *.nim nmap <silent> <C-p> :Nim<CR>
+autocmd! BufEnter *.ex,*.exs nmap <silent> <C-p> :Elixir<CR>
 " </Helpers>
 
 
