@@ -180,5 +180,6 @@ source ~/.rvm/scripts/rvm
 # </Env>
 
 # <Load>
+. /opt/asdf-vm/asdf.sh
 eval "$(starship init zsh)"
 # </Load>
