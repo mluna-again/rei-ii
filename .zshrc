@@ -174,12 +174,22 @@ export PYTHONPATH=/usr/share/python3
 export PATH="$PATH:$HOME/.symfony/bin"
 export PATH=$PATH:/$HOME/.emacs.d/bin:/opt/flutter/bin
 export SDKMAN_DIR="$HOME/.sdkman"
-source ~/.rvm/scripts/rvm
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # </Env>
 
 # <Load>
-. /opt/asdf-vm/asdf.sh
 eval "$(starship init zsh)"
 # </Load>
+
+# <Elixir/Erlang>
+elidocs() {
+  if grep ":" <<< "$1" &> /dev/null; then
+    erl -man "${1:1}" | less
+  else
+    elixir -e "require IEx.Helpers; IEx.Helpers.h($1)" | less
+  fi
+}
+# </Elixir/Erlang>
+
+source ~/.rvm/scripts/rvm

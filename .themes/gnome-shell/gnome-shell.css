@@ -2276,7 +2276,7 @@ StEntry StLabel.hint-text,
   border-radius: 9999px;
   text-shadow: none;
   border: none;
-  margin: 2px;
+  /* margin: 2px; */
 }
 
 #panel .panel-button.clock-display .clock {

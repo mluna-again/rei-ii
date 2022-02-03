@@ -86,8 +86,8 @@ nmap <silent> <C-Down> :resize -2<CR>
 nmap <silent> Y v$hy
 nmap <silent> TT :only<CR>
 imap <silent> jj <ESC>
-nmap <silent> ss :w<CR>
-nmap <silent> SS :noautocmd w<CR>
+nmap <silent> SS :w<CR>
+nmap <silent> ss :noautocmd w<CR>
 " nmap <silent> gt  :bn<CR>
 " nmap <silent> gr  :bp<CR>
 nmap <silent> tt  :Bclose<CR>
@@ -469,6 +469,7 @@ command Elixir !elixir %
 command Env :e .env
 command T :call ToggleFormatter()
 command C normal ggVG"+y
+command IEx :FloatermNew --name=iex --autoclose=1 iex -S mix
 
 autocmd! BufEnter *.rb nmap <silent> <C-p> :Ruby<CR>
 autocmd! BufEnter *.lisp,*.cl nmap <silent> <C-p> :Lisp<CR>
