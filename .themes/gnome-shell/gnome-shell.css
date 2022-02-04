@@ -2246,7 +2246,8 @@ StEntry StLabel.hint-text,
 
 /* Top Bar */
 #panel {
-  background-color: rgba(42, 40, 39, 0.4);
+  background-color: rgba(42, 40, 39, 0.5);
+  filter: blur(30px);
   font-weight: bold;
   height: 30px;
   color: rgba(221, 199, 161, 1) !important;
